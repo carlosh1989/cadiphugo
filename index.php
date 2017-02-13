@@ -57,6 +57,97 @@ Purchase: http://wrapbootstrap.com
 
 
 
+<script language="javascript">
+$(document).ready(function(){
+   $("#municipio").change(function () {
+           $("#municipio option:selected").each(function () {
+            idmunicipio = $(this).val();
+            $.post("parroquias.php", { idmunicipio:idmunicipio }, function(data){
+                $("#parroquia").html(data);
+            }); 
+            window.console&&console.log(idmunicipio);           
+        });
+   })
+
+});
+</script>
+
+<script language="javascript">
+$(document).ready(function(){
+   $("#parroquia").change(function () {
+           $("#parroquia option:selected").each(function () {
+            idparroquia = $(this).val();
+            $.post("bodegas.php", { idparroquia:idparroquia }, function(data){
+                $("#bodega").html(data);
+            }); 
+            window.console&&console.log(idparroquia);           
+        });
+   })
+
+});
+</script>
+
+
+<script language="javascript">
+$(document).ready(function(){
+   $("#municipioB").change(function () {
+           $("#municipioB option:selected").each(function () {
+            idmunicipio = $(this).val();
+            $.post("parroquias.php", { idmunicipio:idmunicipio }, function(data){
+                $("#parroquiaB").html(data);
+            }); 
+            window.console&&console.log(idmunicipio);           
+        });
+   })
+
+});
+</script>
+
+<script language="javascript">
+$(document).ready(function(){
+   $("#parroquiaB").change(function () {
+           $("#parroquiaB option:selected").each(function () {
+            idparroquia = $(this).val();
+            $.post("bodegas.php", { idparroquia:idparroquia }, function(data){
+                $("#bodegaB").html(data);
+            }); 
+            window.console&&console.log(idparroquia);           
+        });
+   })
+
+});
+</script>
+
+<script language="javascript">
+$(document).ready(function(){
+   $("#municipioC").change(function () {
+           $("#municipioC option:selected").each(function () {
+            idmunicipio = $(this).val();
+            $.post("parroquias.php", { idmunicipio:idmunicipio }, function(data){
+                $("#parroquiaC").html(data);
+            }); 
+            window.console&&console.log(idmunicipio);           
+        });
+   })
+
+});
+</script>
+
+<script language="javascript">
+$(document).ready(function(){
+   $("#parroquiaC").change(function () {
+           $("#parroquiaC option:selected").each(function () {
+            idparroquia = $(this).val();
+            $.post("bodegas.php", { idparroquia:idparroquia }, function(data){
+                $("#bodegaC").html(data);
+            }); 
+            window.console&&console.log(idparroquia);           
+        });
+   })
+
+});
+</script>
+
 </head>
 <!-- /Head -->
 <!-- Body -->
@@ -217,68 +308,67 @@ Purchase: http://wrapbootstrap.com
 										<div class="well with-header">
 											<div class="header bordered-green"><li class="fa fa-user-plus fa-2x red-text"></li> Busqueda Jefe de familia</div>
 										
-											<div class="col-lg-3 col-sm-12 col-xs-12">
-												<select class="form-control" name="municipio" data-bv-field="country">
-	                                                <option value="">Municipio</option>
-	                                                <option value="5">Barinas</option>
+										<form action="jefe.php" method="POST">
+											
+												<?php $municipios = Municipio::all(); ?>
+												<select name="municipio" id="municipio">
+												<?php foreach ($municipios as $municipio): ?>
+													 <option value="<?php echo $municipio->id_municipio ?>"><?php echo $municipio->nombre_municipio ?></option>
+												<?php endforeach ?>
 												</select>
-											</div>
-											<div class="col-lg-3 col-sm-12 col-xs-12">
-												<select class="form-control" name="municipio" data-bv-field="country">
-	                                                <option value="">Municipio</option>
-	                                                <option value="5">Barinas</option>
+									
+								
+												<select name="parroquia" id="parroquia">
 												</select>
-											</div>
-											<div class="col-lg-3 col-sm-12 col-xs-12">
-												<select class="form-control" name="municipio" data-bv-field="country">
-	                                                <option value="">Municipio</option>
-	                                                <option value="5">Barinas</option>
+								
+									
+												<select name="bodega" id="bodega">
 												</select>
-											</div>
-											<div class="col-lg-3 col-sm-12 col-xs-12">
+										
+										
+										<hr>
+											<div class="col-lg-2 col-sm-12 col-xs-12">
 												<button class="btn btn-danger btn-lg" type="submit" value="buscar">
 												Buscar  <i class="fa fa-search"></i> 
 												</button>
 											</div>
-											<br>
-											<br>
+											</form>
 											</div>
 										</div>
 								</div>
                                             </div>
 
-                                            <div id="profile3" class="tab-pane">
+                                 <div id="profile3" class="tab-pane">
 								<div class="row">
 									<div class="col-lg-12 col-sm-12 col-xs-12">
 										<div class="well with-header">
 											<div class="header bordered-green"><li class="fa fa-users fa-2x red-text"></li> Busqueda Jede de familia y la carga familiar</div>
+										<form action="output/jefecarga/jefecarga.php" method="POST">
+											
+												<?php $municipios = Municipio::all(); ?>
+												<select name="municipio" id="municipioB">
+												<?php foreach ($municipios as $municipio): ?>
+													 <option value="<?php echo $municipio->id_municipio ?>"><?php echo $municipio->nombre_municipio ?></option>
+												<?php endforeach ?>
+												</select>
+									
+								
+												<select name="parroquia" id="parroquiaB">
+												</select>
+								
+									
+												<select name="bodega" id="bodegaB">
+												</select>
 										
-											<div class="col-lg-3 col-sm-12 col-xs-12">
-												<select class="form-control" name="municipio" data-bv-field="country">
-	                                                <option value="">Municipio</option>
-	                                                <option value="5">Barinas</option>
-												</select>
-											</div>
-											<div class="col-lg-3 col-sm-12 col-xs-12">
-												<select class="form-control" name="municipio" data-bv-field="country">
-	                                                <option value="">Municipio</option>
-	                                                <option value="5">Barinas</option>
-												</select>
-											</div>
-											<div class="col-lg-3 col-sm-12 col-xs-12">
-												<select class="form-control" name="municipio" data-bv-field="country">
-	                                                <option value="">Municipio</option>
-	                                                <option value="5">Barinas</option>
-												</select>
-											</div>
-											<div class="col-lg-3 col-sm-12 col-xs-12">
+										
+										<hr>
+											<div class="col-lg-2 col-sm-12 col-xs-12">
 												<button class="btn btn-danger btn-lg" type="submit" value="buscar">
 												Buscar  <i class="fa fa-search"></i> 
 												</button>
 											</div>
-											<br>
-											<br>
 											</div>
+											</form>
 										</div>
 								</div>
                                             </div>
@@ -288,33 +378,30 @@ Purchase: http://wrapbootstrap.com
 									<div class="col-lg-12 col-sm-12 col-xs-12">
 										<div class="well with-header">
 											<div class="header bordered-green"><li class="fa fa-user fa-2x red-text"></li> Busqueda de las personas solas</div>
-										<form action="solos.php" method="POST">
-											<div class="col-lg-3 col-sm-12 col-xs-12">
-												<select class="form-control" name="municipio" data-bv-field="country">
-	                                                <option value="">Municipio</option>
-	                                                <option value="5">Barinas</option>
+										<form action="solo.php" method="POST">
+											
+												<?php $municipios = Municipio::all(); ?>
+												<select name="municipio" id="municipioC">
+												<?php foreach ($municipios as $municipio): ?>
+													 <option value="<?php echo $municipio->id_municipio ?>"><?php echo $municipio->nombre_municipio ?></option>
+												<?php endforeach ?>
 												</select>
-											</div>
-											<div class="col-lg-3 col-sm-12 col-xs-12">
-												<select class="form-control" name="parroquia" data-bv-field="country">
-	                                                <option value="">Parroquia</option>
-	                                                <option value="5">Ramon Ignacio Mendez</option>
+									
+								
+												<select name="parroquia" id="parroquiaC">
 												</select>
-											</div>
-											<div class="col-lg-3 col-sm-12 col-xs-12">
-												<select class="form-control" name="bodega" data-bv-field="country">
-	                                                <option value="">Bodega</option>
-	                                                <option value="5">SAN ISIDRO, LA MULA</option>
+								
+									
+												<select name="bodega" id="bodegaC">
 												</select>
-											</div>
-											<div class="col-lg-3 col-sm-12 col-xs-12">
+										
+										
+										<hr>
+											<div class="col-lg-2 col-sm-12 col-xs-12">
 												<button class="btn btn-danger btn-lg" type="submit" value="buscar">
 												Buscar  <i class="fa fa-search"></i> 
 												</button>
 											</div>
-										</form>
-											<br>
-											<br>
 											</div>
 										</div>
 								</div>
@@ -323,57 +410,6 @@ Purchase: http://wrapbootstrap.com
                                     </div>
                                     <div class="horizontal-space"></div>
                                 </div>
-  
-
-
-
-<script language="javascript">
-$(document).ready(function(){
-   $("#municipio").change(function () {
-           $("#municipio option:selected").each(function () {
-            idmunicipio = $(this).val();
-            $.post("parroquias.php", { idmunicipio:idmunicipio }, function(data){
-                $("#parroquia").html(data);
-            }); 
-            window.console&&console.log(idmunicipio);           
-        });
-   })
-
-});
-</script>
-
-<script language="javascript">
-$(document).ready(function(){
-   $("#parroquia").change(function () {
-           $("#parroquia option:selected").each(function () {
-            idparroquia = $(this).val();
-            $.post("bodegas.php", { idparroquia:idparroquia }, function(data){
-                $("#bodega").html(data);
-            }); 
-            window.console&&console.log(idparroquia);           
-        });
-   })
-
-});
-</script>
-
-<form action="">
-<?php $municipios = Municipio::all(); ?>
-<select name="municipio" id="municipio">
-<?php foreach ($municipios as $municipio): ?>
-	 <option value="<?php echo $municipio->id_municipio ?>"><?php echo $municipio->nombre_municipio ?></option>
-<?php endforeach ?>
-</select>
-<select name="parroquia" id="parroquia">
-</select>
-<select name="bodega" id="bodega">
-</select>
-</form>
-
-
-
-
-
                 <!-- /Page Body -->
             </div>
             <!-- /Page Content -->
