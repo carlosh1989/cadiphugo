@@ -9,7 +9,7 @@ class Eloquent {
 	    $capsule->addConnection([
 	     'driver' => 'mysql',
 	     'host' => 'localhost',
-	     'database' => 'cadiphugo',
+	     'database' => 'CADIP2',
 	     'username' => 'root',
 	     'password' => 'Adm15.',
 	     'charset' => 'utf8',

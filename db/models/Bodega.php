@@ -2,9 +2,9 @@
 namespace Models;
 use \Illuminate\Database\Eloquent\Model;
  
-class Comercio extends Model {
+class Bodega extends Model {
 	public $timestamps = false;
-    protected $table = 'comercio';
-	protected $primaryKey = 'id_com';
+    protected $table = 'registro_bodegas_patria';
+	protected $primaryKey = 'id';
     //Ejemplo de definir campos
 }

@@ -1,6 +1,7 @@
 <?php
 //SECCIÓN DE CARGA DE LIBRERIAS Y MODELOS
 use DB\Eloquent;
+use Models\Bodega;
 use Models\Comercio;
 use Models\Parroquia;
 
@@ -12,10 +13,10 @@ $whoops->register();
 
 new Eloquent();
 //\krumo::dump($comercios);
-$id_municipio = $_POST['idmunicipio'];
-$parroquias = Parroquia::where('id_municipio',$id_municipio)->get();
-//var_dump($parroquias);
-foreach ($parroquias as $key => $parroquia) {
-	echo '<option value="'.$parroquia->id_parrouia.'">'.$parroquia->nombre_parroquia.'</option>';
+$id_parroquia = $_POST['idparroquia'];
+$bodegas = Bodega::where('cod_parroquia',$id_parroquia)->get();
+//var_dump($bodegas);
+foreach ($bodegas as $key => $bodega) {
+	echo '<option value="'.$bodega->id.'">'.$bodega->rason_social.'</option>';
 }
 ?>

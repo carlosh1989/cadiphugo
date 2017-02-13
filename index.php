@@ -1,7 +1,6 @@
 <?php
 //SECCIÓN DE CARGA DE LIBRERIAS Y MODELOS
 use DB\Eloquent;
-use Models\Comercio;
 use Models\Municipio;
 
 require __DIR__ . '/vendor/autoload.php';
@@ -11,7 +10,6 @@ $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
 new Eloquent();
-$comercios = Comercio::find(1);
 //\krumo::dump($comercios);
 ?>
 
@@ -56,20 +54,9 @@ Purchase: http://wrapbootstrap.com
     <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
     <script src="assets/js/skins.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
-    <script language="javascript">
-$(document).ready(function(){
-   $("#municipio").change(function () {
-           $("#municipio option:selected").each(function () {
-            idmunicipio = $(this).val();
-            $.post("parroquias.php", { idmunicipio:idmunicipio }, function(data){
-                $("#parroquia").html(data);
-            }); 
-            window.console&&console.log(idmunicipio);           
-        });
-   })
 
-});
-</script>
+
+
 </head>
 <!-- /Head -->
 <!-- Body -->
@@ -340,7 +327,35 @@ $(document).ready(function(){
 
 
 
+<script language="javascript">
+$(document).ready(function(){
+   $("#municipio").change(function () {
+           $("#municipio option:selected").each(function () {
+            idmunicipio = $(this).val();
+            $.post("parroquias.php", { idmunicipio:idmunicipio }, function(data){
+                $("#parroquia").html(data);
+            }); 
+            window.console&&console.log(idmunicipio);           
+        });
+   })
 
+});
+</script>
+
+<script language="javascript">
+$(document).ready(function(){
+   $("#parroquia").change(function () {
+           $("#parroquia option:selected").each(function () {
+            idparroquia = $(this).val();
+            $.post("bodegas.php", { idparroquia:idparroquia }, function(data){
+                $("#bodega").html(data);
+            }); 
+            window.console&&console.log(idparroquia);           
+        });
+   })
+
+});
+</script>
 
 <form action="">
 <?php $municipios = Municipio::all(); ?>
@@ -350,6 +365,8 @@ $(document).ready(function(){
 <?php endforeach ?>
 </select>
 <select name="parroquia" id="parroquia">
+</select>
+<select name="bodega" id="bodega">
 </select>
 </form>
 
