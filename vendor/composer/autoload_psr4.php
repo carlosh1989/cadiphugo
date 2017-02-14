@@ -15,6 +15,7 @@ return array(
     'Illuminate\\Database\\' => array($vendorDir . '/illuminate/database'),
     'Illuminate\\Contracts\\' => array($vendorDir . '/illuminate/contracts'),
     'Illuminate\\Container\\' => array($vendorDir . '/illuminate/container'),
+    'Dompdf\\' => array($vendorDir . '/dompdf/dompdf/src'),
     'DB\\' => array($baseDir . '/db'),
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
 );

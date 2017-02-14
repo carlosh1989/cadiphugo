@@ -8,20 +8,11 @@ use Models\Jefe;
 
 new Eloquent();
 //\krumo::dump($comercios);
-
 extract($_POST);
-
-$solos = Jefe::where('n_personas',1)->where('cod_municipio',5)->where('cod_parroquia',20)->where('bodega',92)->limit(10)->get();
+$solos = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('cod_parroquia',$parroquia)->where('bodega',$bodega)->orderBy('cedula', 'DESC')->get();
 
 //\krumo::dump($solos);
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Solos</title>
-</head>
-<body>
 <table class="table table-bordered">
     <thead>
       <tr>
@@ -35,11 +26,11 @@ $solos = Jefe::where('n_personas',1)->where('cod_municipio',5)->where('cod_parro
     <tbody>
 		<?php foreach ($solos as $solo): ?>
 		<tr>
-			<td><?php echo $solo->nombre_apellido ?></td>
-			<td><?php echo $solo->cedula ?></td>
-			<td><?php echo $solo->fecha_nacimiento ?></td>
-			<td><?php echo $solo->edad ?></td>
-			<td>
+			<td align="left"><?php echo $solo->nombre_apellido ?></td>
+			<td align="center"><?php echo $solo->cedula ?></td>
+			<td align="center"><?php echo $solo->fecha_nacimiento ?></td>
+			<td align="center"><?php echo $solo->edad ?></td>
+			<td align="center">
 			<?php 
 			if($solo->sexo == '2')
 			{
@@ -47,7 +38,7 @@ $solos = Jefe::where('n_personas',1)->where('cod_municipio',5)->where('cod_parro
 			}
 			else
 			{
-				echo "Fmenino";
+				echo "Femenino";
 			}
 			?>
 			</td>
@@ -55,5 +46,3 @@ $solos = Jefe::where('n_personas',1)->where('cod_municipio',5)->where('cod_parro
 		<?php endforeach ?>
     </tbody>
   </table>
-</body>
-</html>

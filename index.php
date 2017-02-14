@@ -343,7 +343,7 @@ $(document).ready(function(){
 									<div class="col-lg-12 col-sm-12 col-xs-12">
 										<div class="well with-header">
 											<div class="header bordered-green"><li class="fa fa-users fa-2x red-text"></li> Busqueda Jede de familia y la carga familiar</div>
-										<form action="output/jefecarga/jefecarga.php" method="POST">
+										<form action="jefecarga.php" method="POST">
 											
 												<?php $municipios = Municipio::all(); ?>
 												<select name="municipio" id="municipioB">
