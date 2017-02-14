@@ -4,7 +4,11 @@ require('autoload.php');
 use DB\Eloquent;
 use Models\Jefe;
 new Eloquent();
+
+extract($_GET);
 extract($_POST);
+
+
 $jefes = Jefe::where('n_personas', '>', 1)->where('cod_municipio',$municipio)->where('cod_parroquia',$parroquia)->where('bodega',$bodega)->orderBy('edad', 'desc')->get();
 ?>
 <table>
