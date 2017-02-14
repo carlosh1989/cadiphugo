@@ -1,19 +1,13 @@
 <?php
 //SECCIÓN DE CARGA DE LIBRERIAS Y MODELOS
 require('autoload.php');
-
 use DB\Eloquent;
-use Models\Comercio;
 use Models\Jefe;
-
 new Eloquent();
-//\krumo::dump($comercios);
 extract($_POST);
-$solos = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('cod_parroquia',$parroquia)->where('bodega',$bodega)->orderBy('cedula', 'DESC')->get();
-
-//\krumo::dump($solos);
+$solos = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('cod_parroquia',$parroquia)->where('bodega',$bodega)->orderBy('edad', 'desc')->get();
 ?>
-<table class="table table-bordered">
+<table>
     <thead>
       <tr>
         <th>Nombre Apellido</th>
@@ -46,3 +40,5 @@ $solos = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('
 		<?php endforeach ?>
     </tbody>
   </table>
+  <hr>
+  <pre>Total personas solas: <?php echo $solos->count() ?></pre>

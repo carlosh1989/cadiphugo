@@ -1,20 +1,17 @@
 <?php
 //SECCIÓN DE CARGA DE LIBRERIAS Y MODELOS
 require('autoload.php');
-
 use DB\Eloquent;
-use Models\Comercio;
 use Models\Jefe;
-
 new Eloquent();
-//\krumo::dump($comercios);
-
 extract($_POST);
 
-$jefes = Jefe::where('n_personas', '>', 1)->where('cod_municipio',$municipio)->where('cod_parroquia',$parroquia)->where('bodega',$bodega)->orderBy('cedula', 'DESC')->get();
+$jefes = Jefe::where('n_personas', '>', 1)->where('cod_municipio',$municipio)->where('cod_parroquia',$parroquia)->where('bodega',$bodega)->orderBy('cedula', 'asc')->get();
 
+$solos = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('cod_parroquia',$parroquia)->where('bodega',$bodega)->orderBy('cedula', 'desc')->get();
 //\krumo::dump($solos);
 ?>
+<h3 align="center">Jefes y carga familiar</h3>
 <table>
     <thead>
       <tr>
@@ -64,5 +61,28 @@ $jefes = Jefe::where('n_personas', '>', 1)->where('cod_municipio',$municipio)->w
       	</tr>
       	<?php endforeach ?>
 		<?php endforeach ?>
+		<tr>
+			<td colspan="6" align="center">
+			<h3>Personas solas</h3>
+			</td>
+		</tr>
+		<?php foreach ($solos as $solo): ?>
+        <tr>
+			<td align="left"><?php echo $solo->nombre_apellido ?></td>
+			<td align="center"><?php echo $solo->cedula ?></td>
+			<td align="center">Jefe Familia</td>
+			<td align="center"><?php echo $solo->edad ?></td>
+			<td align="center"><?php echo $solo->fecha_nacimiento ?></td>
+			<td align="center">NINGUNA</td>
+      	</tr>
+		<?php endforeach ?>
     </tbody>
   </table>
+<hr>
+<?php 
+$total_familias = $jefes->count() + $solos->count();
+$total_personas = $jefes->sum('n_personas') + $solos->count();
+?>
+<pre>Numero de Familias: <?php echo $total_familias ?></pre>
+<pre>Numero de personas: <?php echo $total_personas ?></pre>
+<pre>Numero de personas solas: <?php echo $solos->count() ?></pre>
