@@ -1,9 +1,15 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
+use DB\Eloquent;
+use Models\Jefe;
+new Eloquent();
+
+
 $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 extract($_POST);
+$solos = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('cod_parroquia',$parroquia)->where('bodega',$bodega)->orderBy('edad', 'desc')->get();
 ?>
 
 <!DOCTYPE html>
@@ -48,6 +54,15 @@ Purchase: http://wrapbootstrap.com
     <script src="assets/js/skins.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
 
+
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+<script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+
+      <script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>
 </head>
 <!-- /Head -->
 <!-- Body -->
@@ -181,9 +196,40 @@ Purchase: http://wrapbootstrap.com
 							<div class="col-lg-12 col-sm-12 col-xs-12">
 							<a class="btn btn-danger btn-lg pull-right" href="http://localhost/cadiphugo/solo_pdf.php?municipio=<?php echo $municipio ?>&parroquia=<?php echo $parroquia ?>&bodega=<?php echo $bodega ?>"><i class="fa fa-download" aria-hidden="true"></i> Descargar PDF</a>
 							<hr>
-							<div class="embed-responsive embed-responsive-16by9">
-								<iframe id="iframepdf" src="http://localhost/cadiphugo/solo.php?municipio=<?php echo $municipio ?>&parroquia=<?php echo $parroquia ?>&bodega=<?php echo $bodega ?>"></iframe>
-							</div>
+ <h3 align="center">Personas solas</h3>
+  <table id="myTable">  
+    <thead>
+      <tr>
+        <th>Nombre Apellido</th>
+        <th>Cedula</th>
+        <th>Edad</th>
+        <th>Sexo</th>
+      </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($solos as $solo): ?>
+        <tr>
+            <td align="left"><?php echo $solo->nombre_apellido ?></td>
+            <td align="center"><?php echo $solo->cedula ?></td>
+            <td align="center"><?php echo $solo->edad ?></td>
+            <td align="center">
+            <?php 
+            if($solo->sexo == '2')
+            {
+                echo "Masculino";
+            }
+            else
+            {
+                echo "Femenino";
+            }
+            ?>
+            </td>
+        </tr>
+        <?php endforeach ?>
+    </tbody>
+  </table>
+  <hr>
+  <pre>Total personas solas: <?php echo $solos->count() ?></pre>
 							</div>
 	                    </div>
 	                </div>

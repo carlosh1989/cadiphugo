@@ -1,5 +1,10 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
+use DB\Eloquent;
+use Models\Jefe;
+new Eloquent();
+
+
 $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
@@ -48,6 +53,14 @@ Purchase: http://wrapbootstrap.com
     <script src="assets/js/skins.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
 
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+<script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+
+      <script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>
 </head>
 <!-- /Head -->
 <!-- Body -->
@@ -181,9 +194,35 @@ Purchase: http://wrapbootstrap.com
 							<div class="col-lg-12 col-sm-12 col-xs-12">
 							<a class="btn btn-danger btn-lg pull-right" href="http://localhost/cadiphugo/jefe_pdf.php?municipio=<?php echo $municipio ?>&parroquia=<?php echo $parroquia ?>&bodega=<?php echo $bodega ?>"><i class="fa fa-download" aria-hidden="true"></i> Descargar PDF</a>
 							<hr>
-							<div class="embed-responsive embed-responsive-16by9">
-								<iframe id="iframepdf" src="http://localhost/cadiphugo/jefe.php?municipio=<?php echo $municipio ?>&parroquia=<?php echo $parroquia ?>&bodega=<?php echo $bodega ?>"></iframe>
-							</div>
+                            <h3 align="center">Jefes de familia</h3>
+                            <?php
+                            $jefes = Jefe::where('n_personas', '>', 1)->where('cod_municipio',$municipio)->where('cod_parroquia',$parroquia)->where('bodega',$bodega)->orderBy('edad', 'desc')->get();
+                            ?>
+                               <table id="myTable">  
+                                <thead>
+                                  <tr>
+                                    <th>Nombre Apellido</th>
+                                    <th>Cedula</th>
+                                    <th>fecha nacimiento</th>
+                                    <th>Edad</th>
+                                    <th>Cant. Personas</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($jefes as $jefe): ?>
+                                    <tr>
+                                        <td align="left"><?php echo $jefe->nombre_apellido ?></td>
+                                        <td align="right"><?php echo $jefe->cedula ?></td>
+                                        <td align="center"><?php echo $jefe->fecha_nacimiento ?></td>
+                                        <td align="center"><?php echo $jefe->edad ?></td>
+                                        <td align="center"><?php echo $jefe->n_personas ?></td>
+                                    </tr>
+                                    <?php endforeach ?>
+                                </tbody>
+                              </table>
+                              <hr>
+  <pre>Número de familias: <?php echo $jefes->count() ?></pre>
+  <pre>Número de personas: <?php echo $jefes->sum('n_personas') ?></pre>
 							</div>
 	                    </div>
 	                </div>
