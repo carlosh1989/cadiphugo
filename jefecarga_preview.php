@@ -1,9 +1,17 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
-$whoops = new \Whoops\Run;
-$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
-$whoops->register();
+//SECCIÓN DE CARGA DE LIBRERIAS Y MODELOS
+require('autoload.php');
+use DB\Eloquent;
+use Models\Jefe;
+new Eloquent();
+
+extract($_GET);
 extract($_POST);
+
+$jefes = Jefe::where('n_personas', '>', 1)->where('cod_municipio',$municipio)->where('cod_parroquia',$parroquia)->where('bodega',$bodega)->orderBy('cedula', 'asc')->get();
+
+$solos = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('cod_parroquia',$parroquia)->where('bodega',$bodega)->orderBy('cedula', 'desc')->get();
+//\krumo::dump($solos);
 ?>
 
 <!DOCTYPE html>
@@ -48,6 +56,7 @@ Purchase: http://wrapbootstrap.com
     <script src="assets/js/skins.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
 
+    
 </head>
 <!-- /Head -->
 <!-- Body -->
@@ -181,9 +190,101 @@ Purchase: http://wrapbootstrap.com
 							<div class="col-lg-12 col-sm-12 col-xs-12">
 							<a class="btn btn-danger btn-lg pull-right" href="http://localhost/cadiphugo/jefecarga_pdf.php?municipio=<?php echo $municipio ?>&parroquia=<?php echo $parroquia ?>&bodega=<?php echo $bodega ?>"><i class="fa fa-download" aria-hidden="true"></i> Descargar PDF</a>
 							<hr>
-							<div class="embed-responsive embed-responsive-16by9">
-								<iframe id="iframepdf" src="http://localhost/cadiphugo/jefecarga.php?municipio=<?php echo $municipio ?>&parroquia=<?php echo $parroquia ?>&bodega=<?php echo $bodega ?>"></iframe>
-							</div>
+                            <hr>
+ <h3 align="center">Jefe y carga familiar</h3>
+<div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-search"></i></span>
+    <input class="form-control" id="livesearch" placeholder="Find a user" type="text">
+</div>
+<div class="form-group">    <!--        Show Numbers Of Rows        -->
+    <select class  ="form-control" name="state" id="maxRows">
+         <option value="5000">Mostrar todos los registros</option>
+         <option value="5">5</option>
+         <option value="10">10</option>
+         <option value="15">15</option>
+         <option value="20">20</option>
+         <option value="50">50</option>
+         <option value="70">70</option>
+         <option value="100">100</option>
+        </select>
+    
+</div>
+<table class="table table-hover" id="demo-1">
+    <thead>
+      <tr>
+        <th>Nombre Apellido</th>
+        <th>Cedula</th>
+        <th>Parentesco</th>
+        <th>Edad</th>
+        <th>fecha nac.</th>
+        <th>DISCAPACIDAD</th>
+      </tr>
+    </thead>
+<tbody>
+        <?php foreach ($jefes as $jefe): ?>
+        <tr data-id="<?php echo $jefe->cedula ?>" data-parent="" style="background-color:#E2E2E2;">
+            <td align="left"><?php echo $jefe->nombre_apellido ?></td>
+            <td align="center"><?php echo $jefe->cedula ?></td>
+            <td align="center">Jefe Familia</td>
+            <td align="center"><?php echo $jefe->edad ?></td>
+            <td align="center"><?php echo $jefe->fecha_nacimiento ?></td>
+            <td align="center">NINGUNA</td>
+        </tr>
+
+        <?php foreach ($jefe->familia as $familiar): ?>
+        <tr data-id="<?php echo $familiar->cedula ?>" data-parent="<?php echo $jefe->cedula ?>" class="bordered">
+            <td align="left"><?php echo $familiar->nombre_y_apellido ?></td>
+            <td align="center"><?php echo $familiar->cedula ?></td>
+            <td align="center">
+            <?php if ($familiar->parentesco=='1'): ?>
+                <?php echo 'Hijo(a)' ?>
+            <?php endif ?>
+            <?php if ($familiar->parentesco=='2'): ?>
+                <?php echo 'Esposo(a)' ?>
+            <?php endif ?>
+            <?php if ($familiar->parentesco=='3'): ?>
+                <?php echo 'Padre' ?>
+            <?php endif ?>
+            <?php if ($familiar->parentesco=='4'): ?>
+                <?php echo 'Madre' ?>
+            <?php endif ?>
+            <?php if ($familiar->parentesco=='5'): ?>
+                <?php echo 'Hermano(a)' ?>
+            <?php endif ?>
+            </td>
+            <td align="center"><?php echo $familiar->edad ?></td>
+            <td align="center"><?php echo $familiar->fecha_nacimiento ?></td>
+            <td align="center"><?php echo $familiar->discapacidad ?></td>
+        </tr>
+        <?php endforeach ?>
+        <?php endforeach ?>
+        <tr>
+            <td colspan="6" align="center">
+            <h3>Personas solas</h3>
+            </td>
+        </tr>
+        <?php foreach ($solos as $solo): ?>
+        <tr>
+            <td align="left"><?php echo $solo->nombre_apellido ?></td>
+            <td align="center"><?php echo $solo->cedula ?></td>
+            <td align="center">Jefe Familia</td>
+            <td align="center"><?php echo $solo->edad ?></td>
+            <td align="center"><?php echo $solo->fecha_nacimiento ?></td>
+            <td align="center">NINGUNA</td>
+        </tr>
+        <?php endforeach ?>
+    </tbody>
+</table>
+<hr>
+<!--        Start Pagination -->
+            <div class='pagination-container' >
+                <nav>
+                  <ul class="pagination">
+                   <!-- Here the JS Function Will Add the Rows -->
+                  </ul>
+                </nav>
+            </div>
+             
 							</div>
 	                    </div>
 	                </div>
@@ -224,7 +325,42 @@ Purchase: http://wrapbootstrap.com
     <script src="assets/js/charts/flot/jquery.flot.tooltip.js"></script>
     <script src="assets/js/charts/flot/jquery.flot.orderBars.js"></script>
 
+    <script src="assets/js/jquery.aCollapTable.js"></script>
+    <script src="assets/js/livesearch.js"></script>
+    <script src="assets/js/pagination.js"></script>
 
+
+
+ <!--         End of Container -->
+
+                <script type="text/javascript">
+                    getPagination('#demo-1');
+                    //getPagination('.table-class');
+                    //getPagination('table');
+
+
+                    
+                </script>
+
+    <script>
+        $('#demo-1').aCollapTable({
+    startCollapsed: true,
+    addColumn: false,
+    plusButton: '<i class="glyphicon glyphicon-plus"></i> ', 
+    minusButton: '<i class="glyphicon glyphicon-minus"></i> ' 
+});
+    </script>
+
+    <script>
+        $(document).ready(function(){
+
+  $('input#livesearch').liveSearch({
+    table : 'table' // table selector
+  });
+
+});
+
+    </script>
 </body>
 <!--  /Body -->
 
