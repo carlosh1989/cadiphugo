@@ -52,7 +52,7 @@
 												// end of on select change 
 		 	 $('.pagination').html('');						// reset pagination 
 		  	var trnum = 0 ;									// reset tr counter 
-		  	var maxRows = 10;			// get Max Rows from select option
+		  	var maxRows = 20;			// get Max Rows from select option
 		  	var totalRows = $(table+' tbody tr').length;		// numbers of rows 
 			 $(table+' tr:gt(0)').each(function(){			// each TR in  table and not the header
 			 	trnum++;									// Start Counter 

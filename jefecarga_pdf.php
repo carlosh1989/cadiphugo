@@ -6,6 +6,6 @@ extract($_GET);
 $page_html = file_get_contents("http://localhost/cadiphugo/jefecarga.php?municipio=".$municipio."&parroquia=".$parroquia."&bodega=".$bodega."");
 $dompdf = new Dompdf();
 $dompdf->loadHtml($page_html);
-$dompdf->setPaper('A4');
+$dompdf->setPaper('A3');
 $dompdf->render();
 $dompdf->stream();

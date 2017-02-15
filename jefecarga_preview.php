@@ -194,7 +194,7 @@ Purchase: http://wrapbootstrap.com
  <h3 align="center">Jefe y carga familiar</h3>
 <div class="input-group">
     <span class="input-group-addon"><i class="fa fa-search"></i></span>
-    <input class="form-control" id="livesearch" placeholder="Find a user" type="text">
+    <input class="form-control" id="livesearch" placeholder="Buscar" type="text">
 </div>
 <div class="form-group">    <!--        Show Numbers Of Rows        -->
     <select class  ="form-control" name="state" id="maxRows">
@@ -276,6 +276,13 @@ Purchase: http://wrapbootstrap.com
     </tbody>
 </table>
 <hr>
+<?php 
+$total_familias = $jefes->count() + $solos->count();
+$total_personas = $jefes->sum('n_personas') + $solos->count();
+?>
+<pre>Numero de Familias: <?php echo $total_familias ?></pre>
+<pre>Numero de personas: <?php echo $total_personas ?></pre>
+<pre>Numero de personas solas: <?php echo $solos->count() ?></pre>
 <!--        Start Pagination -->
             <div class='pagination-container' >
                 <nav>
