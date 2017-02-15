@@ -230,6 +230,10 @@ $(document).ready(function(){
   </table>
   <hr>
   <pre>Total personas solas: <?php echo $solos->count() ?></pre>
+
+  <hr>
+
+  
 							</div>
 	                    </div>
 	                </div>
