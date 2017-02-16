@@ -13,24 +13,21 @@ $page_html = file_get_contents("http://localhost/cadiphugo/jefecarga.php?municip
 
 $nombre = "jefesycargafamilia.pdf";
 $mpdf = new mPDF();
+$mpdf->SetHTMLHeader('<img src="assets/img/banner.jpg">');
+$mpdf->SetHTMLFooter('<img src="assets/img/banner.jpg">');
 
-$mpdf->SetHTMLHeader('<img src="https://static1.squarespace.com/static/53049c4de4b0bf3b719c9449/t/530ee1dee4b0d9c24da8cbe7/1393484256309/Banner-1-Main.jpg?format=2500w">');
+$mpdf->AddPage('', // L - landscape, P - portrait 
+'', '', '', '',
+5, // margin_left
+5, // margin right
+60, // margin top
+30, // margin bottom
+0, // margin header
+0); // margin footer
 
-    $mpdf->SetHTMLFooter('<img src="https://static1.squarespace.com/static/53049c4de4b0bf3b719c9449/t/530ee1dee4b0d9c24da8cbe7/1393484256309/Banner-1-Main.jpg?format=2500w">');
-
-
-    $mpdf->AddPage('', // L - landscape, P - portrait 
-        '', '', '', '',
-        5, // margin_left
-        5, // margin right
-       60, // margin top
-       30, // margin bottom
-        0, // margin header
-        0); // margin footer
-
-
+$nombre = "jefesycargafamilia.pdf";
 $mpdf->WriteHTML($page_html);
-$mpdf->Output();
+$mpdf->Output($nombre,'D');
 /*$nombre = "jefesycargafamilia.pdf";
 $dompdf = new Dompdf();
 $dompdf->loadHtml($output);
