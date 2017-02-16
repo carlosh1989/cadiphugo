@@ -1,6 +1,5 @@
 <?php
-//SECCIÓN DE CARGA DE LIBRERIAS Y MODELOS
-require('autoload.php');
+require __DIR__ . '/vendor/autoload.php';
 use DB\Eloquent;
 use Models\Jefe;
 new Eloquent();
@@ -8,10 +7,8 @@ new Eloquent();
 extract($_GET);
 extract($_POST);
 
-$jefes = Jefe::where('n_personas', '>', 1)->where('cod_municipio',$municipio)->where('cod_parroquia',$parroquia)->where('bodega',$bodega)->orderBy('cedula', 'asc')->get();
 
-$solos = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('cod_parroquia',$parroquia)->where('bodega',$bodega)->orderBy('cedula', 'desc')->get();
-//\krumo::dump($solos);
+$jefes = Jefe::where('n_personas', '>', 1)->where('cod_municipio',$municipio)->where('cod_parroquia',$parroquia)->where('bodega',$bodega)->orderBy('edad', 'desc')->get();
 ?>
 
 <!DOCTYPE html>
@@ -52,11 +49,18 @@ Purchase: http://wrapbootstrap.com
     <link href="assets/css/animate.min.css" rel="stylesheet" />
     <link id="skin-link" href="#" rel="stylesheet" type="text/css" />
 
+
+    <link href="assets/css/dataTables.bootstrap.css" rel="stylesheet" />
     <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
     <script src="assets/js/skins.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
 
-    
+
+      <script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>
 </head>
 <!-- /Head -->
 <!-- Body -->
@@ -74,7 +78,7 @@ Purchase: http://wrapbootstrap.com
                 <!-- Navbar Barnd -->
                 <div class="navbar-header pull-left">
                     <a href="#" class="navbar-brand">
-						<!--CADIP -->
+                        <!--CADIP -->
                     </a>
                 </div>
                 <!-- /Navbar Barnd -->
@@ -125,24 +129,24 @@ Purchase: http://wrapbootstrap.com
                             <span class="menu-text"> Soporte Tecnico </span>
                         </a>
                     </li>
-								<!--UI Elements-->
-								<!--
-								<li>
-									<a href="#" class="menu-dropdown">
-										<i class="menu-icon fa fa-desktop"></i>
-										<span class="menu-text"> Elements </span>
-										<i class="menu-expand"></i>
-									</a>
+                                <!--UI Elements-->
+                                <!--
+                                <li>
+                                    <a href="#" class="menu-dropdown">
+                                        <i class="menu-icon fa fa-desktop"></i>
+                                        <span class="menu-text"> Elements </span>
+                                        <i class="menu-expand"></i>
+                                    </a>
 
-									<ul class="submenu">
-										<li>
-											<a href="elements.html">
-												<span class="menu-text">Basic Elements</span>
-											</a>
-										</li>
-									</ul>
-								</li>
-								-->
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="elements.html">
+                                                <span class="menu-text">Basic Elements</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                -->
                 </ul>
                 <!-- /Sidebar Menu -->
             </div>
@@ -183,121 +187,98 @@ Purchase: http://wrapbootstrap.com
                 <!-- /Page Header -->
                 <!-- Page Body -->
                 <div class="page-body">
-					<div class="row">
-							<div class="col-lg-12 col-sm-12 col-xs-12">
-								<h5 class="row-title before-darkorange"><i class="fa fa-list-alt darkorange"></i>Busquedas segun municipio, parroquia y bodega</h5>
-              				</div>
-							<div class="col-lg-12 col-sm-12 col-xs-12">
-							<a class="btn btn-danger btn-lg pull-right" href="http://localhost/cadiphugo/jefecarga_pdf.php?municipio=<?php echo $municipio ?>&parroquia=<?php echo $parroquia ?>&bodega=<?php echo $bodega ?>"><i class="fa fa-download" aria-hidden="true"></i> Descargar PDF</a>
-							<hr>
+                    <div class="row">
+                            <div class="col-lg-12 col-sm-12 col-xs-12">
+                                <h5 class="row-title before-darkorange"><i class="fa fa-list-alt darkorange"></i>Busquedas segun municipio, parroquia y bodega</h5>
+                            </div>
+                            <div class="col-lg-12 col-sm-12 col-xs-12">
+                            <a class="btn btn-danger btn-lg pull-right" href="http://localhost/cadiphugo/jefe_pdf.php?municipio=<?php echo $municipio ?>&parroquia=<?php echo $parroquia ?>&bodega=<?php echo $bodega ?>"><i class="fa fa-download" aria-hidden="true"></i> Descargar PDF</a>
                             <hr>
- <h3 align="center">Jefe y carga familiar</h3>
-<div class="input-group">
-    <span class="input-group-addon"><i class="fa fa-search"></i></span>
-    <input class="form-control" id="livesearch" placeholder="Buscar" type="text">
-</div>
-<div class="form-group">    <!--        Show Numbers Of Rows        -->
-    <select class  ="form-control" name="state" id="maxRows">
-         <option value="5000">Mostrar todos los registros</option>
-         <option value="5">5</option>
-         <option value="10">10</option>
-         <option value="15">15</option>
-         <option value="20">20</option>
-         <option value="50">50</option>
-         <option value="70">70</option>
-         <option value="100">100</option>
-        </select>
-    
-</div>
-<table class="table table-hover" id="demo-1">
-    <thead>
-      <tr>
-        <th>Nombre Apellido</th>
-        <th>Cedula</th>
-        <th>Parentesco</th>
-        <th>Edad</th>
-        <th>fecha nac.</th>
-        <th>DISCAPACIDAD</th>
-      </tr>
-    </thead>
-<tbody>
-        <?php foreach ($jefes as $jefe): ?>
-        <tr data-id="<?php echo $jefe->cedula ?>" data-parent="" style="background-color:#E2E2E2;">
-            <td align="left"><?php echo $jefe->nombre_apellido ?></td>
-            <td align="center"><?php echo $jefe->cedula ?></td>
-            <td align="center">Jefe Familia</td>
-            <td align="center"><?php echo $jefe->edad ?></td>
-            <td align="center"><?php echo $jefe->fecha_nacimiento ?></td>
-            <td align="center">NINGUNA</td>
-        </tr>
+                            <h3 align="center">Jefes de familia</h3>
+                            <?php
+                            $jefes = Jefe::where('n_personas', '>', 1)->where('cod_municipio',$municipio)->where('cod_parroquia',$parroquia)->where('bodega',$bodega)->orderBy('edad', 'desc')->get();
+                            ?>
+                              
 
-        <?php foreach ($jefe->familia as $familiar): ?>
-        <tr data-id="<?php echo $familiar->cedula ?>" data-parent="<?php echo $jefe->cedula ?>" class="bordered">
-            <td align="left"><?php echo $familiar->nombre_y_apellido ?></td>
-            <td align="center"><?php echo $familiar->cedula ?></td>
-            <td align="center">
-            <?php if ($familiar->parentesco=='1'): ?>
-                <?php echo 'Hijo(a)' ?>
-            <?php endif ?>
-            <?php if ($familiar->parentesco=='2'): ?>
-                <?php echo 'Esposo(a)' ?>
-            <?php endif ?>
-            <?php if ($familiar->parentesco=='3'): ?>
-                <?php echo 'Padre' ?>
-            <?php endif ?>
-            <?php if ($familiar->parentesco=='4'): ?>
-                <?php echo 'Madre' ?>
-            <?php endif ?>
-            <?php if ($familiar->parentesco=='5'): ?>
-                <?php echo 'Hermano(a)' ?>
-            <?php endif ?>
-            </td>
-            <td align="center"><?php echo $familiar->edad ?></td>
-            <td align="center"><?php echo $familiar->fecha_nacimiento ?></td>
-            <td align="center"><?php echo $familiar->discapacidad ?></td>
-        </tr>
+                            </div>
+                        </div>
+
+
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12">
+                            <div class="widget">
+                                <div class="widget-header ">
+                                    <span class="widget-caption">Simple DataTable</span>
+                                    <div class="widget-buttons">
+                                        <a href="#" data-toggle="maximize">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                        <a href="#" data-toggle="collapse">
+                                            <i class="fa fa-minus"></i>
+                                        </a>
+                                        <a href="#" data-toggle="dispose">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="widget-body">
+                                    <table class="table table-striped table-bordered table-hover" id="simpledatatable">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                             
+                                                </th>
+                                                <th>
+                                                    Nombre
+                                                </th>
+                                                <th>
+                                                    Cedula
+                                                </th>
+                                                <th>
+                                                    Edad
+                                                </th>
+                                                <th>
+                                                    Cant. Personas
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+    <?php $num = 1; ?>
+        <?php foreach ($jefes as $jefe): ?>
+                                            <tr>
+                                                <td>
+                                              
+                                                </td>
+                                                <td>
+                                                    <?php echo $jefe->nombre_apellido ?>
+                                                </td>
+                                                <td>
+                                                    <a href="mailto:looper90@gmail.com"><?php echo $jefe->cedula ?></a>
+                                                </td>
+                                                <td>
+                                                    <?php echo $jefe->edad ?>
+                                                </td>
+                                                <td class="center ">
+                                                    <?php echo $jefe->n_personas ?>
+                                                </td>
+                                            </tr>
+                                            <?php $num = $num + 1 ?>
         <?php endforeach ?>
-        <?php endforeach ?>
-        <tr>
-            <td colspan="6" align="center">
-            <h3>Personas solas</h3>
-            </td>
-        </tr>
-        <?php foreach ($solos as $solo): ?>
-        <tr>
-            <td align="left"><?php echo $solo->nombre_apellido ?></td>
-            <td align="center"><?php echo $solo->cedula ?></td>
-            <td align="center">Jefe Familia</td>
-            <td align="center"><?php echo $solo->edad ?></td>
-            <td align="center"><?php echo $solo->fecha_nacimiento ?></td>
-            <td align="center">NINGUNA</td>
-        </tr>
-        <?php endforeach ?>
-    </tbody>
-</table>
-<hr>
-<?php 
-$total_familias = $jefes->count() + $solos->count();
-$total_personas = $jefes->sum('n_personas') + $solos->count();
-?>
-<pre>Numero de Familias: <?php echo $total_familias ?></pre>
-<pre>Numero de personas: <?php echo $total_personas ?></pre>
-<pre>Numero de personas solas: <?php echo $solos->count() ?></pre>
-<!--        Start Pagination -->
-            <div class='pagination-container' >
-                <nav>
-                  <ul class="pagination">
-                   <!-- Here the JS Function Will Add the Rows -->
-                  </ul>
-                </nav>
+                                            
+                                        </tbody>
+                                    </table>
+<div class="horizontal-space"></div>
+  <pre>Numero de Familias: <?php echo $jefes->count() ?></pre>
+  <pre>Numero de personas: <?php echo $jefes->sum('n_personas') ?></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+                <div class="horizontal-space"></div>
             </div>
-             
-							</div>
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="horizontal-space"></div>
-	        </div>
                 <!-- /Page Body -->
             </div>
             <!-- /Page Content -->
@@ -315,6 +296,15 @@ $total_personas = $jefes->sum('n_personas') + $solos->count();
     <!--Beyond Scripts-->
     <script src="assets/js/beyond.js"></script>
 
+    <!--Page Related Scripts-->
+    <script src="assets/js/datatable/jquery.dataTables.min.js"></script>
+    <script src="assets/js/datatable/ZeroClipboard.js"></script>
+   <!-- <script src="assets/js/datatable/dataTables.tableTools.min.js"></script> -->
+    <script src="assets/js/datatable/dataTables.bootstrap.min.js"></script>
+    <script src="assets/js/datatable/datatables-init.js"></script>
+    <script>
+        InitiateSimpleDataTable.init();
+    </script>
 
     <!--Page Related Scripts-->
     <!--Sparkline Charts Needed Scripts-->
@@ -332,42 +322,7 @@ $total_personas = $jefes->sum('n_personas') + $solos->count();
     <script src="assets/js/charts/flot/jquery.flot.tooltip.js"></script>
     <script src="assets/js/charts/flot/jquery.flot.orderBars.js"></script>
 
-    <script src="assets/js/jquery.aCollapTable.js"></script>
-    <script src="assets/js/livesearch.js"></script>
-    <script src="assets/js/pagination.js"></script>
 
-
-
- <!--         End of Container -->
-
-                <script type="text/javascript">
-                    getPagination('#demo-1');
-                    //getPagination('.table-class');
-                    //getPagination('table');
-
-
-                    
-                </script>
-
-    <script>
-        $('#demo-1').aCollapTable({
-    startCollapsed: true,
-    addColumn: false,
-    plusButton: '<i class="glyphicon glyphicon-plus"></i> ', 
-    minusButton: '<i class="glyphicon glyphicon-minus"></i> ' 
-});
-    </script>
-
-    <script>
-        $(document).ready(function(){
-
-  $('input#livesearch').liveSearch({
-    table : 'table' // table selector
-  });
-
-});
-
-    </script>
 </body>
 <!--  /Body -->
 

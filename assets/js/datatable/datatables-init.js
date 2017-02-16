@@ -7,7 +7,7 @@ var InitiateSimpleDataTable = function() {
                 "iDisplayLength": 5,
                 "oTableTools": {
                     "aButtons": [
-                        "copy", "csv", "xls", "pdf", "print"
+                        "pdf"
                     ],
                     "sSwfPath": "assets/swf/copy_csv_xls_pdf.swf"
                 },

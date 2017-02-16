@@ -99,6 +99,13 @@ class ComposerStaticInit741d840ceac3b27d4d7bed2a2d9ca6da
     );
 
     public static $prefixesPsr0 = array (
+        'z' => 
+        array (
+            'zz' => 
+            array (
+                0 => __DIR__ . '/..' . '/zaininnari/html-minifier/src',
+            ),
+        ),
         'S' => 
         array (
             'Svg\\' => 
@@ -589,6 +596,11 @@ class ComposerStaticInit741d840ceac3b27d4d7bed2a2d9ca6da
         'Whoops\\Util\\Misc' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/Misc.php',
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
+        'zz\\Html\\HTMLMinify' => __DIR__ . '/..' . '/zaininnari/html-minifier/src/zz/Html/HTMLMinify.php',
+        'zz\\Html\\HTMLNames' => __DIR__ . '/..' . '/zaininnari/html-minifier/src/zz/Html/HTMLNames.php',
+        'zz\\Html\\HTMLToken' => __DIR__ . '/..' . '/zaininnari/html-minifier/src/zz/Html/HTMLToken.php',
+        'zz\\Html\\HTMLTokenizer' => __DIR__ . '/..' . '/zaininnari/html-minifier/src/zz/Html/HTMLTokenizer.php',
+        'zz\\Html\\SegmentedString' => __DIR__ . '/..' . '/zaininnari/html-minifier/src/zz/Html/SegmentedString.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

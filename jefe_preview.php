@@ -299,7 +299,7 @@ $(document).ready(function(){
     <!--Page Related Scripts-->
     <script src="assets/js/datatable/jquery.dataTables.min.js"></script>
     <script src="assets/js/datatable/ZeroClipboard.js"></script>
-    <script src="assets/js/datatable/dataTables.tableTools.min.js"></script>
+   <!-- <script src="assets/js/datatable/dataTables.tableTools.min.js"></script> -->
     <script src="assets/js/datatable/dataTables.bootstrap.min.js"></script>
     <script src="assets/js/datatable/datatables-init.js"></script>
     <script>

@@ -21,7 +21,6 @@ $solos = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('
         <th>Cedula</th>
         <th>Parentesco</th>
         <th>Edad</th>
-        <th>fecha nac.</th>
         <th>DISCAPACIDAD</th>
       </tr>
     </thead>
@@ -32,7 +31,6 @@ $solos = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('
 			<td align="center"><?php echo $jefe->cedula ?></td>
 			<td align="center">Jefe Familia</td>
 			<td align="center"><?php echo $jefe->edad ?></td>
-			<td align="center"><?php echo $jefe->fecha_nacimiento ?></td>
 			<td align="center">NINGUNA</td>
       	</tr>
 
@@ -58,7 +56,6 @@ $solos = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('
 			<?php endif ?>
 			</td>
 			<td align="center"><?php echo $familiar->edad ?></td>
-			<td align="center"><?php echo $familiar->fecha_nacimiento ?></td>
 			<td align="center"><?php echo $familiar->discapacidad ?></td>
       	</tr>
       	<?php endforeach ?>
@@ -74,7 +71,6 @@ $solos = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('
 			<td align="center"><?php echo $solo->cedula ?></td>
 			<td align="center">Jefe Familia</td>
 			<td align="center"><?php echo $solo->edad ?></td>
-			<td align="center"><?php echo $solo->fecha_nacimiento ?></td>
 			<td align="center">NINGUNA</td>
       	</tr>
 		<?php endforeach ?>

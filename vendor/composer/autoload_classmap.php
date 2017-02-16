@@ -465,4 +465,9 @@ return array(
     'Whoops\\Util\\Misc' => $vendorDir . '/filp/whoops/src/Whoops/Util/Misc.php',
     'Whoops\\Util\\SystemFacade' => $vendorDir . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
     'Whoops\\Util\\TemplateHelper' => $vendorDir . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
+    'zz\\Html\\HTMLMinify' => $vendorDir . '/zaininnari/html-minifier/src/zz/Html/HTMLMinify.php',
+    'zz\\Html\\HTMLNames' => $vendorDir . '/zaininnari/html-minifier/src/zz/Html/HTMLNames.php',
+    'zz\\Html\\HTMLToken' => $vendorDir . '/zaininnari/html-minifier/src/zz/Html/HTMLToken.php',
+    'zz\\Html\\HTMLTokenizer' => $vendorDir . '/zaininnari/html-minifier/src/zz/Html/HTMLTokenizer.php',
+    'zz\\Html\\SegmentedString' => $vendorDir . '/zaininnari/html-minifier/src/zz/Html/SegmentedString.php',
 );
