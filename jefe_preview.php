@@ -208,7 +208,7 @@ $(document).ready(function(){
                         <div class="col-xs-12 col-md-12">
                             <div class="widget">
                                 <div class="widget-header ">
-                                    <span class="widget-caption">Simple DataTable</span>
+                                    <span class="widget-caption">Jefes de familia</span>
                                     <div class="widget-buttons">
                                         <a href="#" data-toggle="maximize">
                                             <i class="fa fa-expand"></i>
@@ -253,7 +253,7 @@ $(document).ready(function(){
                                                     <?php echo $jefe->nombre_apellido ?>
                                                 </td>
                                                 <td>
-                                                    <a href="mailto:looper90@gmail.com"><?php echo $jefe->cedula ?></a>
+                                                   <?php echo $jefe->cedula ?>
                                                 </td>
                                                 <td>
                                                     <?php echo $jefe->edad ?>
