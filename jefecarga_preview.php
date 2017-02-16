@@ -192,7 +192,7 @@ $(document).ready(function(){
                                 <h5 class="row-title before-darkorange"><i class="fa fa-list-alt darkorange"></i>Busquedas segun municipio, parroquia y bodega</h5>
                             </div>
                             <div class="col-lg-12 col-sm-12 col-xs-12">
-                            <a class="btn btn-danger btn-lg pull-right" href="http://localhost/cadiphugo/jefe_pdf.php?municipio=<?php echo $municipio ?>&parroquia=<?php echo $parroquia ?>&bodega=<?php echo $bodega ?>"><i class="fa fa-download" aria-hidden="true"></i> Descargar PDF</a>
+                            <a class="btn btn-danger btn-lg pull-right" href="http://localhost/cadiphugo/jefecarga_pdf.php?municipio=<?php echo $municipio ?>&parroquia=<?php echo $parroquia ?>&bodega=<?php echo $bodega ?>"><i class="fa fa-download" aria-hidden="true"></i> Descargar PDF</a>
                             <hr>
                             <h3 align="center">Jefes de familia</h3>
                             <?php
@@ -208,7 +208,7 @@ $(document).ready(function(){
                         <div class="col-xs-12 col-md-12">
                             <div class="widget">
                                 <div class="widget-header ">
-                                    <span class="widget-caption">Simple DataTable</span>
+                                    <span class="widget-caption">Jefes de familia y su carga familiar</span>
                                     <div class="widget-buttons">
                                         <a href="#" data-toggle="maximize">
                                             <i class="fa fa-expand"></i>
@@ -250,10 +250,12 @@ $(document).ready(function(){
                                               
                                                 </td>
                                                 <td>
+                                                <a href="http://localhost/cadiphugo/jefecarga_familia_preview.php?municipio=<?php echo $municipio ?>&parroquia=<?php echo $parroquia ?>&bodega=<?php echo $bodega ?>&cedula=<?php echo $jefe->cedula ?>">
                                                     <?php echo $jefe->nombre_apellido ?>
+                                                </a>
                                                 </td>
                                                 <td>
-                                                    <a href="mailto:looper90@gmail.com"><?php echo $jefe->cedula ?></a>
+                                                    <?php echo $jefe->cedula ?>
                                                 </td>
                                                 <td>
                                                     <?php echo $jefe->edad ?>
@@ -263,7 +265,7 @@ $(document).ready(function(){
                                                 </td>
                                             </tr>
                                             <?php $num = $num + 1 ?>
-        <?php endforeach ?>
+                        <?php endforeach ?>
                                             
                                         </tbody>
                                     </table>

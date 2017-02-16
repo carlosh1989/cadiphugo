@@ -8,7 +8,7 @@ new Eloquent();
 extract($_GET);
 extract($_POST);
 
-$solos = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('cod_parroquia',$parroquia)->where('bodega',$bodega)->orderBy('edad', 'desc')->get();
+$jefe = Jefe::where('cedula',$cedula)->where('n_personas', '>', 1)->where('cod_municipio',$municipio)->where('cod_parroquia',$parroquia)->where('bodega',$bodega)->orderBy('cedula', 'asc')->first();
 ?>
 
 <!DOCTYPE html>
@@ -192,11 +192,11 @@ $(document).ready(function(){
                                 <h5 class="row-title before-darkorange"><i class="fa fa-list-alt darkorange"></i>Busquedas segun municipio, parroquia y bodega</h5>
                             </div>
                             <div class="col-lg-12 col-sm-12 col-xs-12">
-                            <a class="btn btn-danger btn-lg pull-right" href="http://localhost/cadiphugo/solo_pdf.php?municipio=<?php echo $municipio ?>&parroquia=<?php echo $parroquia ?>&bodega=<?php echo $bodega ?>"><i class="fa fa-download" aria-hidden="true"></i> Descargar PDF</a>
+                            <a class="btn btn-danger btn-lg pull-right" href="http://localhost/cadiphugo/jefe_pdf.php?municipio=<?php echo $municipio ?>&parroquia=<?php echo $parroquia ?>&bodega=<?php echo $bodega ?>"><i class="fa fa-download" aria-hidden="true"></i> Descargar PDF</a>
                             <hr>
-                            <h3 align="center">Personas solas</h3>
+                            <h3 align="center">Jefes de familia</h3>
                             <?php
-                            $jefes = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('cod_parroquia',$parroquia)->where('bodega',$bodega)->orderBy('edad', 'desc')->get();
+                            $jefes = Jefe::where('n_personas', '>', 1)->where('cod_municipio',$municipio)->where('cod_parroquia',$parroquia)->where('bodega',$bodega)->orderBy('edad', 'desc')->get();
                             ?>
                               
 
@@ -238,36 +238,52 @@ $(document).ready(function(){
                                                     Edad
                                                 </th>
                                                 <th>
-                                                    Sexo
+                                                	Parentesco
+                                                </th>
+                                                <th>
+                                                    Discapacidad
                                                 </th>
                                             </tr>
                                         </thead>
                                         <tbody>
     <?php $num = 1; ?>
-        <?php foreach ($jefes as $jefe): ?>
+        <?php foreach ($jefe->familia as $familiar): ?>
                                             <tr>
                                                 <td>
                                               
                                                 </td>
                                                 <td>
-                                                    <?php echo $jefe->nombre_apellido ?>
+                                                    <?php echo $familiar->nombre_y_apellido ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $jefe->cedula ?>
+                                                    <?php echo $familiar->cedula ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $jefe->edad ?>
+                                                    <?php echo $familiar->edad ?>
                                                 </td>
+													<td align="center">
+													<?php if ($familiar->parentesco=='1'): ?>
+														<?php echo 'Hijo(a)' ?>
+													<?php endif ?>
+													<?php if ($familiar->parentesco=='2'): ?>
+														<?php echo 'Esposo(a)' ?>
+													<?php endif ?>
+													<?php if ($familiar->parentesco=='3'): ?>
+														<?php echo 'Padre' ?>
+													<?php endif ?>
+													<?php if ($familiar->parentesco=='4'): ?>
+														<?php echo 'Madre' ?>
+													<?php endif ?>
+													<?php if ($familiar->parentesco=='5'): ?>
+														<?php echo 'Hermano(a)' ?>
+													<?php endif ?>
+													</td>
                                                 <td class="center ">
-                                                    <?php if ($jefe->sexo == 2): ?>
-                                                        <?php echo 'Masculino' ?>
-                                                    <?php else: ?>
-                                                        <?php echo 'Femenino' ?>
-                                                    <?php endif ?>
+                                                    <?php echo $familiar->discapacidad ?>
                                                 </td>
                                             </tr>
                                             <?php $num = $num + 1 ?>
-        <?php endforeach ?>
+                        <?php endforeach ?>
                                             
                                         </tbody>
                                     </table>
@@ -303,7 +319,7 @@ $(document).ready(function(){
     <!--Page Related Scripts-->
     <script src="assets/js/datatable/jquery.dataTables.min.js"></script>
     <script src="assets/js/datatable/ZeroClipboard.js"></script>
-   <!--  <script src="assets/js/datatable/dataTables.tableTools.min.js"></script> -->
+   <!-- <script src="assets/js/datatable/dataTables.tableTools.min.js"></script> -->
     <script src="assets/js/datatable/dataTables.bootstrap.min.js"></script>
     <script src="assets/js/datatable/datatables-init.js"></script>
     <script>
@@ -332,6 +348,3 @@ $(document).ready(function(){
 
 <!-- Mirrored from beyondadmin-v1.4.1.s3-website-us-east-1.amazonaws.com/index.html by HTTrack Website Copier/3.x [XR&CO'2013], Thu, 09 Jul 2015 10:59:22 GMT -->
 </html>
-
-
-
