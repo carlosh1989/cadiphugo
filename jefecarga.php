@@ -13,14 +13,7 @@ $jefes = Jefe::where('n_personas', '>', 1)->where('cod_municipio',$municipio)->w
 $solos = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('cod_parroquia',$parroquia)->where('bodega',$bodega)->orderBy('cedula', 'desc')->get();
 //\krumo::dump($solos);
 ?>
-<style>
-	@page *{
-    margin-top: 500cm;
-    margin-bottom: 60cm;
-    margin-left: 3.175cm;
-    margin-right: 3.175cm;
-}
-</style>
+
 <table>
     <thead>
       <tr>

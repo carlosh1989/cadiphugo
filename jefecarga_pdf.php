@@ -12,25 +12,25 @@ extract($_GET);
 $page_html = file_get_contents("http://localhost/cadiphugo/jefecarga.php?municipio=".$municipio."&parroquia=".$parroquia."&bodega=".$bodega."");
 
 $nombre = "jefesycargafamilia.pdf";
-$mpdf = new mPDF('','letter');;
+$mpdf = new mPDF();
 
-$mpdf->SetHTMLHeader('<img src="http://www.comocreartuweb.com/imagenes/513-cabecera.gif">');
+$mpdf->SetHTMLHeader('<img src="https://static1.squarespace.com/static/53049c4de4b0bf3b719c9449/t/530ee1dee4b0d9c24da8cbe7/1393484256309/Banner-1-Main.jpg?format=2500w">');
 
-$mpdf->SetHTMLFooter('
+    $mpdf->SetHTMLFooter('<img src="https://static1.squarespace.com/static/53049c4de4b0bf3b719c9449/t/530ee1dee4b0d9c24da8cbe7/1393484256309/Banner-1-Main.jpg?format=2500w">');
 
-<table width="100%" style="vertical-align: bottom; font-family: serif; font-size: 8pt; color: #000000; font-weight: bold; font-style: italic;"><tr>
 
-<td width="33%"><span style="font-weight: bold; font-style: italic;">{DATE j-m-Y}</span></td>
+    $mpdf->AddPage('', // L - landscape, P - portrait 
+        '', '', '', '',
+        5, // margin_left
+        5, // margin right
+       60, // margin top
+       30, // margin bottom
+        0, // margin header
+        0); // margin footer
 
-<td width="33%" align="center" style="font-weight: bold; font-style: italic;">{PAGENO}/{nbpg}</td>
 
-<td width="33%" style="text-align: right; ">My document</td>
-
-</tr></table>
-
-');
 $mpdf->WriteHTML($page_html);
-$mpdf->Output($nombre, 'D');
+$mpdf->Output();
 /*$nombre = "jefesycargafamilia.pdf";
 $dompdf = new Dompdf();
 $dompdf->loadHtml($output);
