@@ -109,24 +109,25 @@ $(document).ready(function(){
                 <!-- Sidebar Menu -->
                 <ul class="nav sidebar-menu">
                     <!--Dashboard-->
+                    <!--Dashboard-->
                     <li class="active">
-                        <a href="index.html">
-                            <i class="menu-icon glyphicon glyphicon-home"></i>
-                            <span class="menu-text"> Inicio </span>
+                        <a href="jefe_busqueda.php">
+                            <i class="fa fa-user-plus"></i>
+                            <span class="menu-text"> Busqueda Jefe </span>
                         </a>
                     </li>
                     <!--Databoxes-->
                     <li>
-                        <a href="databoxes.html">
-                            <i class="menu-icon glyphicon glyphicon-tasks"></i>
-                            <span class="menu-text"> Preguntas frecuentes </span>
+                        <a href="jefecarga_busqueda.php">
+                            <i class="fa fa-users"></i>
+                            <span class="menu-text"> Busqueda Jefe y carga </span>
                         </a>
                     </li>
                     <!--Widgets-->
                     <li>
-                        <a href="widgets.html">
-                            <i class="menu-icon fa fa-th"></i>
-                            <span class="menu-text"> Soporte Tecnico </span>
+                        <a href="solo_busqueda.php">
+                            <i class="fa fa-user"></i>
+                            <span class="menu-text"> Busqueda de personas solas </span>
                         </a>
                     </li>
                                 <!--UI Elements-->
