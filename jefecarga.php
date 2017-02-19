@@ -15,20 +15,18 @@ $solos = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('
 $jefe = Jefe::where('bodega', $bodega)->first();
 //\krumo::dump($solos);
 ?>
-<style type="text/css">
 
-</style>
 <div class="bodega">
 
 <strong>Fecha:</strong><?php echo date('d')."/".date('m')."/".date('Y') ?>
 <br>
-<strong>Datos bodega:</strong>
+<strong>Datos de bodega:</strong>
 <br>
 Razón social: <?php echo $jefe->bodeguera->rason_social ?>
 <br>
-bodeguero: <?php echo $jefe->bodeguera->responsable ?>
+Responsable: <?php echo $jefe->bodeguera->responsable ?>
 <br>	
-dirección: <?php echo $jefe->bodeguera->direccion ?>
+Dirección: <?php echo $jefe->bodeguera->direccion ?>
 	
 </div>
 <h3 align="center">Jefes y carga familiar</h3>

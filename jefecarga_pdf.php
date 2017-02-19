@@ -11,7 +11,6 @@ $whoops->register();
 extract($_GET);
 $page_html = file_get_contents("http://localhost/cadiphugo/jefecarga.php?municipio=".$municipio."&parroquia=".$parroquia."&bodega=".$bodega."");
 
-$nombre = "jefesycargafamilia.pdf";
 $mpdf = new mPDF('','Letter',12,'arial');
 $mpdf->SetHTMLHeader('
 	<img  src="assets/img/cadip-cintillo.jpg" height="50" width="100%"><br>
