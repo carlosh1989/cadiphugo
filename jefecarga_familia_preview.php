@@ -8,7 +8,7 @@ new Eloquent();
 extract($_GET);
 extract($_POST);
 
-$jefe = Jefe::where('cedula',$cedula)->where('n_personas', '>', 1)->where('cod_municipio',$municipio)->where('cod_parroquia',$parroquia)->where('bodega',$bodega)->orderBy('cedula', 'asc')->first();
+$jefe = Jefe::where('cedula',$cedula)->first();
 ?>
 
 <!DOCTYPE html>
@@ -66,10 +66,10 @@ $(document).ready(function(){
 <!-- Body -->
 <body>
 
-    <!-- Loading Container -->
+    <!-- Loading Container 
     <div class="loading-container">
         <div class="loader"></div>
-    </div>
+    </div>-->
     <!--  /Loading Container -->
     <!-- Navbar -->
     <div class="navbar">

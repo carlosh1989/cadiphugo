@@ -153,10 +153,11 @@ $(document).ready(function(){
 <!-- Body -->
 <body>
 
-    <!-- Loading Container -->
+    <!-- Loading Container 
     <div class="loading-container">
         <div class="loader"></div>
-    </div>
+    </div> 
+    -->
     <!--  /Loading Container -->
     <!-- Navbar -->
     <div class="navbar">

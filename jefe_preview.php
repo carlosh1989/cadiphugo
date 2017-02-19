@@ -66,10 +66,10 @@ $(document).ready(function(){
 <!-- Body -->
 <body>
 
-    <!-- Loading Container -->
+    <!-- Loading Container 
     <div class="loading-container">
         <div class="loader"></div>
-    </div>
+    </div> -->
     <!--  /Loading Container -->
     <!-- Navbar -->
     <div class="navbar">
@@ -250,7 +250,9 @@ $(document).ready(function(){
                                               
                                                 </td>
                                                 <td>
+                                                <a href="jefecarga_familia_preview.php?municipio=<?php echo $municipio ?>&parroquia=<?php echo $parroquia ?>&bodega=<?php echo $bodega ?>&cedula=<?php echo $jefe->cedula ?>">
                                                     <?php echo $jefe->nombre_apellido ?>
+                                                </a>
                                                 </td>
                                                 <td>
                                                    <?php echo $jefe->cedula ?>
