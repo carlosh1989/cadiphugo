@@ -16,6 +16,8 @@ new Eloquent();
 $id_parroquia = $_POST['idparroquia'];
 $bodegas = Bodega::where('cod_parroquia',$id_parroquia)->get();
 //var_dump($bodegas);
+echo "<option value=''>BODEGA</option>";
+echo "<optgroup label='-------'></optgroup>";
 foreach ($bodegas as $key => $bodega) {
 	echo '<option value="'.$bodega->id.'">'.$bodega->rason_social.'</option>';
 }

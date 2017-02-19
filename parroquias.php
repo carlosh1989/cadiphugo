@@ -15,6 +15,8 @@ new Eloquent();
 $id_municipio = $_POST['idmunicipio'];
 $parroquias = Parroquia::where('id_municipio',$id_municipio)->get();
 //var_dump($parroquias);
+echo "<option value=''>PARROQUIA</option>";
+echo "<optgroup label='-------'></optgroup>";
 foreach ($parroquias as $key => $parroquia) {
 	echo '<option value="'.$parroquia->id_parrouia.'">'.$parroquia->nombre_parroquia.'</option>';
 }
