@@ -13,7 +13,7 @@ $mpdf->AddPage('', // L - landscape, P - portrait
 '', '', '', '',
 5, // margen izquierdo
 5, // margen derecho
-27, // margin arriba
+40, // margin arriba
 2.5, // margin abajo
 0, // margin encabezado
 0); // margin pie de pagina

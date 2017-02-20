@@ -1,4 +1,12 @@
 .fecha{
 	float: left; 
-	margin: 16cm 0 0 16cm;
+	margin-top: -1px;
+	margin-left: 80%;
 }
+
+.qr{
+	float: left; 
+	margin-top: -61px;
+	margin-left: 90%;
+}
+

@@ -15,13 +15,8 @@ $solos = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('
 $jefe = Jefe::where('bodega', $bodega)->first();
 //\krumo::dump($solos);
 ?>
-
+<br>
 <div class="bodega">
-
-<div class="fecha">
-Barinas <?php echo date('d')."/".date('m')."/".date('Y') ?>	
-</div>
-
 <strong>Datos de bodega</strong>
 <br>
 Razón social: <?php echo $jefe->bodeguera->rason_social ?>
@@ -32,7 +27,7 @@ Dirección: <?php echo $jefe->bodeguera->direccion ?>
 	
 </div>
 <h3 align="center">Jefes y carga familiar</h3>
-<table>
+<table border="1">
     <thead>
         <tr style="background-color:#DCDCDC;">
         <th>Nombre Apellido</th>
@@ -89,7 +84,7 @@ Dirección: <?php echo $jefe->bodeguera->direccion ?>
 			<td align="center"><?php echo $solo->cedula ?></td>
 			<td align="center">Jefe Familia</td>
 			<td align="center"><?php echo $solo->edad ?></td>
-			<td align="center">NINGUNA</td>
+			<td align="center">Ninguna</td>
       	</tr>
 		<?php endforeach ?>
     </tbody>
@@ -99,6 +94,6 @@ Dirección: <?php echo $jefe->bodeguera->direccion ?>
 $total_familias = $jefes->count() + $solos->count();
 $total_personas = $jefes->sum('n_personas') + $solos->count();
 ?>
-<pre>Numero de Familias: <?php echo $total_familias ?></pre>
-<pre>Numero de personas: <?php echo $total_personas ?></pre>
-<pre>Numero de personas solas: <?php echo $solos->count() ?></pre>
+<pre>Número de Familias: <?php echo $total_familias ?></pre>
+<pre>Número de Personas: <?php echo $total_personas ?></pre>
+<pre>Número de Personas solas: <?php echo $solos->count() ?></pre>
