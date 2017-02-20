@@ -14,7 +14,6 @@ $jefe = Jefe::where('bodega', $bodega)->first();
 //\krumo::dump($solos);
 ?>
 <div class="bodega">
-
 <div class="fecha">
 Barinas <?php echo date('d')."/".date('m')."/".date('Y') ?> 
 </div>
