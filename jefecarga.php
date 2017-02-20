@@ -18,8 +18,10 @@ $jefe = Jefe::where('bodega', $bodega)->first();
 
 <div class="bodega">
 
-<strong>Fecha:</strong><?php echo date('d')."/".date('m')."/".date('Y') ?>
-<br>
+<div class="fecha">
+Barinas <?php echo date('d')."/".date('m')."/".date('Y') ?>	
+</div>
+
 <strong>Datos de bodega</strong>
 <br>
 Razón social: <?php echo $jefe->bodeguera->rason_social ?>
