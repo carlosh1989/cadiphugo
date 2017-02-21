@@ -287,7 +287,7 @@ $(document).ready(function(){
                                     <div class="col-lg-12 col-sm-12 col-xs-12">
                                         <div class="well with-header">
                                             <div class="header bordered-green"><li class="fa fa-user-plus fa-2x red-text"></li> Busqueda de Jefes de familia por el Clap</div>
-                                        <form action="jefe_preview.php" method="POST">
+                                        <form action="jefesclap_preview.php" method="POST">
                                             
                                                 <?php $municipios = Municipio::all(); ?>
                                                 <select name="municipio" id="municipio">
@@ -305,8 +305,6 @@ $(document).ready(function(){
                                     
                                                 <select name="clap" id="clap">
                                                 </select>
-                                        
-                                        
                                         <hr>
                                             <div class="col-lg-2 col-sm-12 col-xs-12">
                                                 <button class="btn btn-danger btn-lg" type="submit" value="buscar">

@@ -19,15 +19,12 @@ $jefe = Jefe::where('bodega', $bodega)->first();
 <div class="bodega">
 <strong>Datos de bodega</strong>
 <br>
-Razón social: <?php echo $jefe->bodeguera->rason_social ?>
-<br>
 Responsable: <?php echo $jefe->bodeguera->responsable ?>
-<br>	
-Dirección: <?php echo $jefe->bodeguera->direccion ?>
-	
+<br>  
+Dirección: <?php echo $jefe->bodeguera->rason_social ?>
 </div>
 <h3 align="center">Jefes y carga familiar</h3>
-<table border="1">
+<table border=0 cellspacing=0 cellpadding=2 bordercolor="666633">
     <thead>
         <tr style="background-color:#DCDCDC;">
         <th>Nombre Apellido</th>
@@ -41,7 +38,7 @@ Dirección: <?php echo $jefe->bodeguera->direccion ?>
 		<?php foreach ($jefes as $jefe): ?>
         <tr style="background-color:#73C5FF;">
 			<td align="left"><?php echo $jefe->nombre_apellido ?></td>
-			<td align="center"><?php echo $jefe->cedula ?></td>
+			<td align="left"><?php echo $jefe->tipo ?>-<?php echo $jefe->cedula ?></td>
 			<td align="center">Jefe Familia</td>
 			<td align="center"><?php echo $jefe->edad ?></td>
 			<td align="center">NINGUNA</td>
@@ -50,7 +47,7 @@ Dirección: <?php echo $jefe->bodeguera->direccion ?>
       	<?php foreach ($jefe->familia as $familiar): ?>
         <tr class="bordered">
 			<td align="left"><?php echo $familiar->nombre_y_apellido ?></td>
-			<td align="center"><?php echo $familiar->cedula ?></td>
+			<td align="left"><?php echo $jefe->tipo ?>-<?php echo $jefe->cedula ?></td>
 			<td align="center">
 			<?php if ($familiar->parentesco=='1'): ?>
 				<?php echo 'Hijo(a)' ?>

@@ -4,7 +4,7 @@ $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 extract($_GET);
-$mpdf = new mPDF('','Letter',12,'arial');
+$mpdf = new mPDF('','Letter',11,'arial');
 ob_start();
 include('encabezado.php');
 $mpdf->SetHTMLHeader(ob_get_clean());

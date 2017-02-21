@@ -16,15 +16,13 @@ $jefe = Jefe::where('bodega', $bodega)->first();
 <div class="bodega">
 <strong>Datos de bodega</strong>
 <br>
-Razón social: <?php echo $jefe->bodeguera->rason_social ?>
-<br>
 Responsable: <?php echo $jefe->bodeguera->responsable ?>
 <br>	
-Dirección: <?php echo $jefe->bodeguera->direccion ?>
+Dirección: <?php echo $jefe->bodeguera->rason_social ?>
 	
 </div>
 <h3 align="center">Personas Solas</h3>
-<table border="1">
+<table border=0 cellspacing=0 cellpadding=2 bordercolor="666633">
     <thead>
 	    <tr style="background-color:#DCDCDC;">
 	        <th>Nombre Apellido</th>
@@ -37,7 +35,7 @@ Dirección: <?php echo $jefe->bodeguera->direccion ?>
 		<?php foreach ($solos as $solo): ?>
 		<tr>
 			<td align="left"><?php echo $solo->nombre_apellido ?></td>
-			<td align="center"><?php echo $solo->cedula ?></td>
+			<td align="left"><?php echo $solo->tipo ?>-<?php echo $solo->cedula ?></td>
 			<td align="center"><?php echo $solo->edad ?></td>
 			<td align="center">
 			<?php 
