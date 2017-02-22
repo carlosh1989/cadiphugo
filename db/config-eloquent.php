@@ -1,6 +1,5 @@
 <?php
 namespace DB; 
-
 use Illuminate\Database\Capsule\Manager as Capsule;
  
 class Eloquent {
@@ -11,7 +10,7 @@ class Eloquent {
 	     'host' => 'localhost',
 	     'database' => 'CADIP2',
 	     'username' => 'root',
-	     'password' => 'Adm15.',
+	     'password' => '123',
 	     'charset' => 'utf8',
 	     'collation' => 'utf8_unicode_ci',
 	     'prefix' => '',
