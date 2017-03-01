@@ -23,11 +23,7 @@ $parroquia2 = $parroquia;
 $municipio = Municipio::find($municipio);
 $parroquia = Parroquia::find($parroquia);
 
-if ($jefe->certificacion_solo == 1) {
-	echo "<script>window.location.replace('solo_preview.php?municipio=".$municipio2."&parroquia=".$parroquia2."&bodega=".$bodega."&cedula=".$jefe->cedula."');</script>";
-}
-else
-{
+
 	$dompdf = new Dompdf();
 	ob_start();
 	include('formato_solas2.php');
@@ -40,6 +36,6 @@ else
 	$jefe->certificacion_solo = 1;
 	$jefe->save();
 	echo "<script>window.location.replace('solo_preview.php?municipio=".$municipio2."&parroquia=".$parroquia2."&bodega=".$bodega."&cedula=".$jefe->cedula."');</script>";
-}
+
 
 
