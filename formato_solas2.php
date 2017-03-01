@@ -213,24 +213,10 @@ body{
          <p style="text-align:justify;margin-left:0pt;margin-right:0pt;line-height:115%;font-size:10pt;margin-top:0pt;margin-bottom:10pt;padding: 1pt 4pt;"><span style="font-family:Arial;font-size:10pt;">Lugar: ____________________________ Fecha:__________________________</span></p>
          <p style="text-align:justify;margin-left:0pt;margin-right:0pt;line-height:115%;font-size:10pt;margin-top:0pt;margin-bottom:10pt;padding: 1pt 4pt;"><span>&#xa0;</span></p>
          <p style="text-align:justify;margin-left:0pt;margin-right:0pt;line-height:115%;font-size:10pt;margin-top:0pt;margin-bottom:10pt;padding: 1pt 4pt;"><span>&#xa0;</span></p>
-         <table style="border-collapse:collapse;margin-left:auto;margin-right:auto;table-layout:fixed;">
-            <tr>
-               <td style="padding-left:5.4pt;padding-right:5.4pt;vertical-align:top;">
-                  <p style="text-align:center;margin-left:0pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;"><span style="font-family:Arial;font-size:10pt;font-weight: bold;">________________________</span></p>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left:5.4pt;padding-right:5.4pt;vertical-align:top;">
-                  <p style="margin-left:0pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;"><span style="font-family:Arial;font-size:10pt;font-weight: bold;"> Nombre y Apellido:</span></p>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left:5.4pt;padding-right:5.4pt;vertical-align:top;">
-                  <p style="margin-left:0pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;"><span style="font-family:Arial;font-size:10pt;font-weight: bold;"> C.I:</span></p>
-               </td>
-            </tr>
-         </table>
-         <p style="text-align:justify;margin-left:0pt;margin-right:0pt;line-height:115%;font-size:10pt;margin-top:0pt;margin-bottom:0pt;padding: 1pt 4pt;"><span>&#xa0;</span></p>
+          <p style="text-align: center;"><strong>________________________</strong></p>
+          <p style="text-align: center;"><strong>Nombre y Apellido:</strong></p>
+          <p style="text-align: center;"><strong>C.I:</strong></p>
+
          <p style="text-align:justify;margin-left:0pt;margin-right:0pt;line-height:115%;font-size:10pt;margin-top:0pt;margin-bottom:10pt;padding: 1pt 4pt;"><span>&#xa0;</span></p>
          <p style="text-align:justify;margin-left:0pt;margin-right:0pt;line-height:115%;font-size:10pt;margin-top:0pt;margin-bottom:10pt;padding: 1pt 4pt;"><span>&#xa0;</span></p>
          <p style="text-align:justify;margin-left:0pt;margin-right:0pt;line-height:115%;font-size:10pt;margin-top:0pt;margin-bottom:10pt;padding: 1pt 4pt;"><span>&#xa0;</span></p>
