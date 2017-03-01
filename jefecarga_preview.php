@@ -27,7 +27,7 @@ $jefes = Jefe::where('n_personas', '>', 1)->where('cod_municipio',$municipio)->w
                                 <h5 class="row-title before-darkorange"><i class="fa fa-list-alt darkorange"></i>Busquedas segun municipio, parroquia y bodega</h5>
                             </div>
                             <div class="col-lg-12 col-sm-12 col-xs-12">
-                            <a class="btn btn-danger btn-lg pull-right" href="http://localhost/cadiphugo/jefecarga_pdf.php?municipio=<?php echo $municipio ?>&parroquia=<?php echo $parroquia ?>&bodega=<?php echo $bodega ?>"><i class="fa fa-download" aria-hidden="true"></i> Descargar PDF</a>
+                            <a class="btn btn-danger btn-lg pull-right" href="jefecarga_pdf.php?municipio=<?php echo $municipio ?>&parroquia=<?php echo $parroquia ?>&bodega=<?php echo $bodega ?>"><i class="fa fa-download" aria-hidden="true"></i> Descargar PDF</a>
                             <hr>
                             <h3 align="center">Jefes de familia</h3>
                             <?php
@@ -85,7 +85,7 @@ $jefes = Jefe::where('n_personas', '>', 1)->where('cod_municipio',$municipio)->w
                                               
                                                 </td>
                                                 <td>
-                                                <a href="http://localhost/cadiphugo/jefecarga_familia_preview.php?municipio=<?php echo $municipio ?>&parroquia=<?php echo $parroquia ?>&bodega=<?php echo $bodega ?>&cedula=<?php echo $jefe->cedula ?>">
+                                                <a href="jefecarga_familia_preview.php?municipio=<?php echo $municipio ?>&parroquia=<?php echo $parroquia ?>&bodega=<?php echo $bodega ?>&cedula=<?php echo $jefe->cedula ?>">
                                                     <?php echo $jefe->nombre_apellido ?>
                                                 </a>
                                                 </td>
@@ -114,6 +114,14 @@ $jefes = Jefe::where('n_personas', '>', 1)->where('cod_municipio',$municipio)->w
 
                     </div>
 
+    <!--Basic Scripts-->
+
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!--Beyond Scripts-->
+    <script src="assets/js/beyond.js"></script>
+
     <!--Page Related Scripts-->
     <script src="assets/js/datatable/jquery.dataTables.min.js"></script>
     <script src="assets/js/datatable/ZeroClipboard.js"></script>
@@ -123,4 +131,5 @@ $jefes = Jefe::where('n_personas', '>', 1)->where('cod_municipio',$municipio)->w
     <script>
         InitiateSimpleDataTable.init();
     </script>
+
 

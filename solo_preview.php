@@ -1,6 +1,57 @@
+<!DOCTYPE html>
+<!--
+BeyondAdmin - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.4
+Version: 1.4.1
+Purchase: http://wrapbootstrap.com
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Head -->
+
+<!-- Mirrored from beyondadmin-v1.4.1.s3-website-us-east-1.amazonaws.com/index.html by HTTrack Website Copier/3.x [XR&CO'2013], Thu, 09 Jul 2015 10:56:56 GMT -->
+<head>
+    <meta charset="utf-8" />
+    <title>C.A.D.I.P | Inicio </title>
+
+    <meta name="description" content="Dashboard" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 
 
+    <!--Basic Styles-->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link id="bootstrap-rtl-link" href="#" rel="stylesheet" />
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/weather-icons.min.css" rel="stylesheet" />
 
+    <!--Fonts-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <!--Beyond styles-->
+    <link id="beyond-link" href="assets/css/beyond.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/demo.min.css" rel="stylesheet" />
+    <link href="assets/css/typicons.min.css" rel="stylesheet" />
+    <link href="assets/css/animate.min.css" rel="stylesheet" />
+    <link id="skin-link" href="#" rel="stylesheet" type="text/css" />
+
+
+    <link href="assets/css/dataTables.bootstrap.css" rel="stylesheet" />
+    <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
+    <script src="assets/js/skins.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+
+
+      <script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>
+</head>
+<!-- /Head -->
+<!-- Body -->
+<body>
     <script src="assets/js/jquery.min.js"></script>
 
 
@@ -28,7 +79,7 @@ $solos = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('
                                 <h5 class="row-title before-darkorange"><i class="fa fa-list-alt darkorange"></i>Busquedas segun municipio, parroquia y bodega</h5>
                             </div>
                             <div class="col-lg-12 col-sm-12 col-xs-12">
-                            <a class="btn btn-danger btn-lg pull-right" href="http://localhost/cadiphugo/solo_pdf.php?municipio=<?php echo $municipio ?>&parroquia=<?php echo $parroquia ?>&bodega=<?php echo $bodega ?>"><i class="fa fa-download" aria-hidden="true"></i> Descargar PDF</a>
+                            <a class="btn btn-danger btn-lg pull-right" href="solo_pdf.php?municipio=<?php echo $municipio ?>&parroquia=<?php echo $parroquia ?>&bodega=<?php echo $bodega ?>"><i class="fa fa-download" aria-hidden="true"></i> Descargar PDF</a>
                             <hr>
                             <h3 align="center">Personas solas</h3>
                             <?php
@@ -76,11 +127,14 @@ $solos = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('
                                                 <th>
                                                     Sexo
                                                 </th>
+                                                <th>
+                                                    Certificación
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody>
-    <?php $num = 1; ?>
-        <?php foreach ($jefes as $jefe): ?>
+                                        <?php $num = 1; ?>
+                                            <?php foreach ($jefes as $jefe): ?>
                                             <tr>
                                                 <td>
                                               
@@ -101,15 +155,44 @@ $solos = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('
                                                         <?php echo 'Femenino' ?>
                                                     <?php endif ?>
                                                 </td>
+                                                <td>
+                                                <?php
+                                                //Por generar - gris
+                                                 if ($jefe->certificacion_solo == 0): ?>
+                                                    <a href="solo_constancia_pdf.php?municipio=<?php echo $municipio ?>&parroquia=<?php echo $parroquia ?>&bodega=<?php echo $bodega ?>&cedula=<?php echo $jefe->cedula ?>" class="btn btn-labeled">
+                                                        <i class="btn-label fa fa-print"></i>Generar
+                                                    </a>
+                                                <?php endif ?>
+                                                <?php 
+                                                //Generado - verde
+                                                if ($jefe->certificacion_solo == 1): ?>
+                                                    <a href="javascript:void(0);" class="btn btn-labeled btn-palegreen">
+                                                        <i class="btn-label glyphicon glyphicon-ok"></i>Generado
+                                                    </a>
+                                                <?php endif ?>
+                                                <?php 
+                                                //Aprobado - azul
+                                                if ($jefe->certificacion_solo == 2): ?>
+                                                    <a href="javascript:void(0);" class="btn btn-labeled btn-info">
+                                                        <i class="btn-label glyphicon glyphicon-ok"></i>Aprobado
+                                                    </a>
+                                                <?php endif ?>
+                                                <?php 
+                                                //Anulado - rojo
+                                                if ($jefe->certificacion_solo == 3): ?>
+                                                    <a href="javascript:void(0);" class="btn btn-labeled btn-darkorange">
+                                                        <i class="btn-label glyphicon glyphicon-remove"></i>Anulado
+                                                    </a>
+                                                <?php endif ?>
+                                                </td>
                                             </tr>
                                             <?php $num = $num + 1 ?>
-        <?php endforeach ?>
-                                            
+                                        <?php endforeach ?>
                                         </tbody>
                                     </table>
-<div class="horizontal-space"></div>
-  <pre>Numero de Familias: <?php echo $jefes->count() ?></pre>
-  <pre>Numero de personas: <?php echo $jefes->sum('n_personas') ?></pre>
+                                <div class="horizontal-space"></div>
+                                  <pre>Numero de Familias: <?php echo $jefes->count() ?></pre>
+                                  <pre>Numero de personas: <?php echo $jefes->sum('n_personas') ?></pre>
                                 </div>
                             </div>
                         </div>
@@ -119,10 +202,18 @@ $solos = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('
                
 
 
+    <!--Basic Scripts-->
+
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!--Beyond Scripts-->
+    <script src="assets/js/beyond.js"></script>
+
     <!--Page Related Scripts-->
     <script src="assets/js/datatable/jquery.dataTables.min.js"></script>
     <script src="assets/js/datatable/ZeroClipboard.js"></script>
-   <!--  <script src="assets/js/datatable/dataTables.tableTools.min.js"></script> -->
+   <!-- <script src="assets/js/datatable/dataTables.tableTools.min.js"></script> -->
     <script src="assets/js/datatable/dataTables.bootstrap.min.js"></script>
     <script src="assets/js/datatable/datatables-init.js"></script>
     <script>
@@ -130,5 +221,10 @@ $solos = Jefe::where('n_personas',1)->where('cod_municipio',$municipio)->where('
     </script>
 
 
+</body>
+<!--  /Body -->
+
+<!-- Mirrored from beyondadmin-v1.4.1.s3-website-us-east-1.amazonaws.com/index.html by HTTrack Website Copier/3.x [XR&CO'2013], Thu, 09 Jul 2015 10:59:22 GMT -->
+</html>
 
 

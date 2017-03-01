@@ -6,8 +6,8 @@
       <style>
 .checkbox { 
     border: 1px solid black; 
-    width: .50em; 
-    height: .50em; 
+    width: .55em; 
+    height: .55em; 
     display: inline-block;
 }
 
@@ -31,8 +31,11 @@ body{
          <p style="text-align:center;margin-left:0pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;padding: 1pt 4pt;"><span><img src="WurAytPp_files/Image2.png" width="317" height="60" border="0" /></span></p>
 
         <h2 align="center">CONSTANCIA DE CERTIFICACION DE PERSONAS SOLAS</h2>
-         <p style="text-align:justify;margin-left:0pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;padding: 1pt 4pt;"><span style="font-family:Arial;font-size:10pt;">Nosotros, los Integrantes del CLAP del sector: ______________________________________, pertenecientes a la Bodega: __________________________________________________________, donde es responsable el ciudadano(a): ______________________________________, portador(a) del número de Cédula de Identidad: ______________, hacemos saber que el Ciudadano: _________________________________________ portador(a) del número de Cédula de Identidad: ________________; se encuentra residenciado en la dirección de habitación: ________________________________________________________ perteneciente al Municipio: ___________________________, Parroquia: _______________________, bajo el censo C.A.D.I.P. habita en:</span></p>
+         <p style="text-align:justify;margin-left:0pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;padding: 1pt 4pt;"><span style="font-family:Arial;font-size:10pt;">Nosotros, los Integrantes del CLAP del sector: <?php echo $jefe->bodeguera->direccion ?>, pertenecientes a la Bodega: <?php echo $jefe->bodeguera->rason_social ?>, donde es responsable el ciudadano(a): <?php echo $jefe->bodeguera->responsable ?>, portador(a) del número de Cédula de Identidad: <?php echo $jefe->bodeguera->ci_representante ?>, hacemos saber que el Ciudadano: <?php echo $jefe->nombre_apellido ?> portador(a) del número de Cédula de Identidad: <?php echo $jefe->cedula ?>; se encuentra residenciado en el Municipio: <?php echo $municipio->nombre_municipio ?>, Parroquia: <?php echo $parroquia->nombre_parroquia ?>,  Urb/Barrio/Sector: <?php echo $jefe->sector ?> en la calle: <?php echo $jefe->calle_avenida ?> Número de la Casa/Edificio: <?php echo $jefe->casa_edif_apto ?>, según censo C.A.D.I.P. de fecha: <?php echo $jefe->fecha_registro ?>.</span></p>
          <p style="text-align:justify;margin-left:0pt;margin-right:0pt;line-height:115%;font-size:10pt;margin-top:0pt;margin-bottom:0pt;padding: 1pt 4pt;"><span>&#xa0;</span></p>
+
+         <p style="text-align:justify;margin-left:0pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;padding: 1pt 4pt;"><span style="font-family:Arial;font-size:10pt;">Y el ciudadano(a) antes mencionado habita en estos momentos:</span></p>
+
 <table width="100%" cellpadding="0" cellspacing="0">
    <tr valign="top">
       <td bgcolor="#ffffff" style="border: none; padding: 0cm">
@@ -67,16 +70,14 @@ body{
 </table>
 
          <p style="text-align:justify;margin-left:0pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;padding: 1pt 4pt;"><span>&#xa0;</span></p>
-         <p style="text-align:justify;margin-left:0pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;padding: 1pt 4pt;"><span style="font-family:Arial;font-size:10pt;">Y el ciudadano(a) antes mencionado habita:</span></p>
-
          <p style="text-align:justify;margin-left:7.1pt;text-indent:-18pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;padding: 1pt 4pt;"><span style="font-family:Arial;font-size:12pt;">A.</span><span class="checkbox"></span><span style="font-family:Arial;font-size:12pt;"> </span><span style="font-family:Arial;font-size:10pt;">Solo(a), estas personas deben tener más de un año habitando en la localidad</span><span style="font-family:Arial;font-size:8pt;">. (Anexar </span><span style="font-family:Arial;font-size:8pt;font-weight: bold;">R.I.F</span><span style="font-family:Arial;font-size:8pt;">. actualizado).</span></p>
          <p style="text-align:justify;margin-left:28.35pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;padding: 1pt 4pt;"><span class="checkbox"></span><span style="font-family:Arial;font-size:12pt;font-weight: bold;"> </span><span style="font-family:Arial;font-size:10pt;">Estudiante Residenciado </span><span style="font-family:Arial;font-size:8pt;">(Anexar constancia de Estudio y Cédula de Identidad).</span></p>
-         <p style="text-align:justify;margin-left:28.35pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;padding: 1pt 4pt;"><span class="checkbox"></span><span style="font-family:Arial;font-size:12pt;"> </span><span style="font-family:Arial;font-size:10pt;">Persona de la 3era edad. </span><span style="font-family:Arial;font-size:8pt;">(Anexar Cédula de Identidad).</span></p>
+         <p style="text-align:justify;margin-left:28.35pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;padding: 1pt 4pt;"><span class="checkbox"></span><span style="font-family:Arial;font-size:12pt;"> </span><span style="font-family:Arial;font-size:10pt;">Persona de la 3era edad. </span><span class="checkbox"></span><span style="font-family:Arial;font-size:10pt;"> Pensión del I.V.S.S. </span><span style="font-family:Arial;font-size:8pt;">(Anexar Cédula de Identidad).</span></p>
          <p style="text-align:justify;margin-left:28.35pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;padding: 1pt 4pt;"><span class="checkbox"></span><span style="font-family:Arial;font-size:12pt;"> </span><span style="font-family:Arial;font-size:10pt;">Discapacitado(a).</span><span style="font-family:Arial;font-size:8pt;"> (Anexar Cédula de Identidad).</span></p>
          <p style="text-align:justify;margin-left:28.35pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;padding: 1pt 4pt;"><span class="checkbox"></span><span style="font-family:Arial;font-size:12pt;"> </span><span style="font-family:Arial;font-size:10pt;">Trabajador(a)</span><span style="font-family:Arial;font-size:12pt;">.</span><span style="font-family:Arial;font-size:8pt;"> (Anexar Cédula de Identidad).</span></p>
          <p style="text-align:justify;margin-left:7.1pt;text-indent:-19.1pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;padding: 1pt 4pt;"><span style="font-family:Arial;font-size:12pt;">B.</span><span></span><span class="checkbox"></span><span style="font-family:Arial;font-size:12pt;"> </span><span style="font-family:Arial;font-size:10pt;">Solo(a) con Grupo Familiar (Indicar los datos de las personas, con quien comparte la vivienda).</span></p>
          <p style="text-align:justify;margin-left:28.35pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;padding: 1pt 4pt;"><span class="checkbox"></span><span style="font-family:Arial;font-size:12pt;font-weight: bold;"> </span><span style="font-family:Arial;font-size:10pt;">Estudiante Residenciado</span><span style="font-family:Arial;font-size:8pt;"> (Anexar constancia de Estudio, Cédula de Identidad y </span><span style="font-family:Arial;font-size:8pt;font-weight: bold;">R.I.F</span><span style="font-family:Arial;font-size:8pt;">. actualizado).</span></p>
-         <p style="text-align:justify;margin-left:28.35pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;padding: 1pt 4pt;"><span class="checkbox"></span><span style="font-family:Arial;font-size:12pt;"> </span><span style="font-family:Arial;font-size:10pt;">Persona de la 3era edad. </span><span style="font-family:Arial;font-size:8pt;">(Anexar Cédula de Identidad y </span><span style="font-family:Arial;font-size:8pt;font-weight: bold;">R.I.F</span><span style="font-family:Arial;font-size:8pt;">. actualizado).</span></p>
+         <p style="text-align:justify;margin-left:28.35pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;padding: 1pt 4pt;"><span class="checkbox"></span><span style="font-family:Arial;font-size:12pt;"> </span><span style="font-family:Arial;font-size:10pt;">Persona de la 3era edad. </span><span class="checkbox"></span><span style="font-family:Arial;font-size:10pt;"> Pensión del I.V.S.S. </span><span style="font-family:Arial;font-size:8pt;">(Anexar Cédula de Identidad y </span><span style="font-family:Arial;font-size:8pt;font-weight: bold;">R.I.F</span><span style="font-family:Arial;font-size:8pt;">. actualizado).</span></p>
          <p style="text-align:justify;margin-left:28.35pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;padding: 1pt 4pt;"><span class="checkbox"></span><span style="font-family:Arial;font-size:12pt;"> </span><span style="font-family:Arial;font-size:10pt;">Discapacitado(a).</span><span style="font-family:Arial;font-size:8pt;"> (Anexar Cédula de Identidad y </span><span style="font-family:Arial;font-size:8pt;font-weight: bold;">R.I.F</span><span style="font-family:Arial;font-size:8pt;">. actualizado).</span></p>
          <p style="text-align:justify;margin-left:28.35pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;padding: 1pt 4pt;"><span class="checkbox"></span><span style="font-family:Arial;font-size:12pt;"> </span><span style="font-family:Arial;font-size:10pt;">Trabajador(a)</span><span style="font-family:Arial;font-size:12pt;">.</span><span style="font-family:Arial;font-size:8pt;"> (Anexar Cédula de Identidad y </span><span style="font-family:Arial;font-size:8pt;font-weight: bold;">R.I.F</span><span style="font-family:Arial;font-size:8pt;">. actualizado).</span></p>
          <p style="text-align:justify;margin-left:0pt;text-indent:-12pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;padding: 1pt 4pt;"><span style="font-family:Arial;font-size:12pt;">C.</span><span> </span><span class="checkbox"></span><span style="font-family:Arial;font-size:12pt;"> </span><span style="font-family:Arial;font-size:10pt;">No vive solo(a) (Indicar los datos de las personas, con quien comparte la vivienda).</span></p>
@@ -213,9 +214,6 @@ body{
          <p style="text-align:justify;margin-left:0pt;margin-right:0pt;line-height:115%;font-size:10pt;margin-top:0pt;margin-bottom:10pt;padding: 1pt 4pt;"><span>&#xa0;</span></p>
          <p style="text-align:justify;margin-left:0pt;margin-right:0pt;line-height:115%;font-size:10pt;margin-top:0pt;margin-bottom:10pt;padding: 1pt 4pt;"><span>&#xa0;</span></p>
          <table style="border-collapse:collapse;margin-left:auto;margin-right:auto;table-layout:fixed;">
-            <colgroup>
-               <col style="width:192px" />
-            </colgroup>
             <tr>
                <td style="padding-left:5.4pt;padding-right:5.4pt;vertical-align:top;">
                   <p style="text-align:center;margin-left:0pt;margin-right:0pt;margin-top:0pt;margin-bottom:0pt;"><span style="font-family:Arial;font-size:10pt;font-weight: bold;">________________________</span></p>
@@ -255,98 +253,4 @@ body{
 </html>
 
 
-
-
-<p style="text-align: center;"><strong>CONSTANCIA DE CERTIFICACION DE PERSONAS SOLAS</strong></p>
-<p class="western" style="margin-bottom: 0cm; line-height: 100%;" align="justify"><span style="font-size: small;">Nosotros, los Integrantes del CLAP del sector: ______________________________________, pertenecientes a la Bodega: __________________________________________________________, donde es responsable el ciudadano(a): ______________________________________, portador(a) del n&uacute;mero de C&eacute;dula de Identidad: ______________, hacemos saber que el Ciudadano: _________________________________________ portador(a) del n&uacute;mero de C&eacute;dula de Identidad: ________________; se encuentra residenciado en la direcci&oacute;n de habitaci&oacute;n: ________________________________________________________ perteneciente al Municipio: ___________________________, Parroquia: _______________________, bajo el censo C.A.D.I.P. habita en:</span></p>
-<p class="western" style="margin-bottom: 0cm; line-height: 100%;" align="justify">&nbsp;</p>
-<table style="margin-left: auto; margin-right: auto;" border="medium none" width="664" cellspacing="0" cellpadding="7">
-<tbody>
-<tr valign="top">
-<td style="border: none; padding: 0cm;" bgcolor="#ffffff" width="154" height="11">
-<p class="western" style="margin-right: -0.24cm;" align="justify"><span style="font-size: small;">Casa </span></p>
-</td>
-<td style="border: none; padding: 0cm;" bgcolor="#ffffff" width="142">
-<p align="justify"><span style="font-size: small;">Casa/Habitaci&oacute;n</span></p>
-</td>
-<td style="border: none; padding: 0cm;" bgcolor="#ffffff" width="116">
-<p align="justify"><span style="font-size: small;">Apartamento</span></p>
-</td>
-<td style="border: none; padding: 0cm;" bgcolor="#ffffff" width="196">
-<p align="justify"><span style="font-size: small;">Apartamento/Habitaci&oacute;n</span></p>
-</td>
-</tr>
-<tr valign="top">
-<td style="border: none; padding: 0cm;" bgcolor="#ffffff" width="154" height="11">
-<p class="western" align="justify"><span style="font-size: small;">Anexo/Residencia</span></p>
-</td>
-<td style="border: none; padding: 0cm;" bgcolor="#ffffff" width="142">
-<p align="justify"><span style="font-size: small;">Finca</span></p>
-</td>
-<td style="border: none; padding: 0cm;" bgcolor="#ffffff" width="116">
-<p align="justify"><span style="font-size: small;">Parcela</span></p>
-</td>
-<td style="border: none; padding: 0cm;" bgcolor="#ffffff" width="196">
-<p align="justify"><span style="font-size: small;">Otro. ______________</span></p>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="western" style="margin-bottom: 0cm; line-height: 100%;" align="justify"><span style="font-size: small;">Y el ciudadano(a) antes mencionado habita:</span></p>
-<p style="margin-bottom: 0cm; line-height: 100%;" align="justify">&nbsp;</p>
-<ol type="A">
-<li>
-<p style="margin-bottom: 0cm; line-height: 100%;" align="justify"><input type="checkbox" /><span style="font-size: small;">Solo(a), estas personas deben tener m&aacute;s de un a&ntilde;o habitando en la localidad</span><span style="font-size: xx-small;">. (Anexar </span><span style="font-size: xx-small;"><strong>R.I.F</strong></span><span style="font-size: xx-small;">. actualizado).</span></p>
-</li>
-</ol>
-<p style="margin-left: 1cm; margin-bottom: 0cm; line-height: 100%;" align="justify"><input type="checkbox" /><span style="font-size: small;">Estudiante Residenciado </span><span style="font-size: xx-small;">(Anexar constancia de Estudio y C&eacute;dula de Identidad).</span></p>
-<p style="margin-left: 1cm; margin-bottom: 0cm; line-height: 100%;" align="justify"><input type="checkbox" /><span style="font-size: small;">Persona de la 3era edad. </span><span style="font-size: xx-small;">(Anexar C&eacute;dula de Identidad).</span></p>
-<p style="margin-left: 1cm; margin-bottom: 0cm; line-height: 100%;" align="justify"><input type="checkbox" /><span style="font-size: small;">Discapacitado(a).</span><span style="font-size: xx-small;"> (Anexar C&eacute;dula de Identidad).</span></p>
-<p style="margin-left: 1cm; margin-bottom: 0cm; line-height: 100%;" align="justify"><input type="checkbox" /><span style="font-size: small;">Trabajador(a)</span>.<span style="font-size: xx-small;"> (Anexar C&eacute;dula de Identidad).</span></p>
-<ol start="2" type="A">
-<li>
-<p style="margin-bottom: 0cm; line-height: 100%;" align="justify"><input type="checkbox" /><span style="font-size: small;">Solo(a) con Grupo Familiar (Indicar los datos de las personas, con quien comparte la vivienda).</span></p>
-</li>
-</ol>
-<p style="margin-left: 1cm; margin-bottom: 0cm; line-height: 100%;" align="justify"><input type="checkbox" /><span style="font-size: small;">Estudiante Residenciado</span><span style="font-size: xx-small;"> (Anexar constancia de Estudio, C&eacute;dula de Identidad y </span><span style="font-size: xx-small;"><strong>R.I.F</strong></span><span style="font-size: xx-small;">. actualizado).</span></p>
-<p style="margin-left: 1cm; margin-bottom: 0cm; line-height: 100%;" align="justify"><input type="checkbox" /><span style="font-size: small;">Persona de la 3era edad. </span><span style="font-size: xx-small;">(Anexar C&eacute;dula de Identidad y </span><span style="font-size: xx-small;"><strong>R.I.F</strong></span><span style="font-size: xx-small;">. actualizado).</span></p>
-<p style="margin-left: 1cm; margin-bottom: 0cm; line-height: 100%;" align="justify"><input type="checkbox" /><span style="font-size: small;">Discapacitado(a).</span><span style="font-size: xx-small;"> (Anexar C&eacute;dula de Identidad y </span><span style="font-size: xx-small;"><strong>R.I.F</strong></span><span style="font-size: xx-small;">. actualizado).</span></p>
-<p style="margin-left: 1cm; margin-bottom: 0cm; line-height: 100%;" align="justify"><input type="checkbox" /><span style="font-size: small;">Trabajador(a)</span>.<span style="font-size: xx-small;"> (Anexar C&eacute;dula de Identidad y </span><span style="font-size: xx-small;"><strong>R.I.F</strong></span><span style="font-size: xx-small;">. actualizado).</span></p>
-<ol start="3" type="A">
-<li>
-<p style="margin-bottom: 0cm; line-height: 100%;" align="justify"><input type="checkbox" /><span style="font-size: small;">No vive solo(a) (Indicar los datos de las personas, con quien comparte la vivienda).</span></p>
-</li>
-<li>
-<p style="margin-bottom: 0cm; line-height: 100%;" align="justify"><input type="checkbox" /><span style="font-size: small;">Censado(a) en esa comunidad, pero no residen en ella. (Indicar los datos de su carga familiar).</span></p>
-</li>
-</ol>
-<table style="height: 78px; margin-left: auto; margin-right: auto;" border="1" width="971" cellspacing="0">
-<tbody>
-<tr>
-<td style="width: 316.333px; text-align: center;"><strong>C&eacute;dula</strong></td>
-<td style="width: 316.333px; text-align: center;"><strong>Nombres y Apellidos</strong></td>
-<td style="width: 316.333px; text-align: center;"><strong>Parentesco</strong></td>
-</tr>
-<tr>
-<td style="width: 316.333px;">&nbsp;</td>
-<td style="width: 316.333px;">&nbsp;</td>
-<td style="width: 316.333px;">&nbsp;</td>
-</tr>
-<tr>
-<td style="width: 316.333px;">&nbsp;</td>
-<td style="width: 316.333px;">&nbsp;</td>
-<td style="width: 316.333px;">&nbsp;</td>
-</tr>
-<tr>
-<td style="width: 316.333px;">&nbsp;</td>
-<td style="width: 316.333px;">&nbsp;</td>
-<td style="width: 316.333px;">&nbsp;</td>
-</tr>
-<tr>
-<td style="width: 316.333px;">&nbsp;</td>
-<td style="width: 316.333px;">&nbsp;</td>
-<td style="width: 316.333px;">&nbsp;</td>
-</tr>
-</tbody>
-</table>
 
