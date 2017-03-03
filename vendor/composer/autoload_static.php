@@ -481,6 +481,7 @@ class ComposerStaticInit741d840ceac3b27d4d7bed2a2d9ca6da
         'MYANMAR' => __DIR__ . '/..' . '/mpdf/mpdf/classes/myanmar.php',
         'Models\\Bodega' => __DIR__ . '/../..' . '/db/models/Bodega.php',
         'Models\\Clap' => __DIR__ . '/../..' . '/db/models/Clap.php',
+        'Models\\Clap2' => __DIR__ . '/../..' . '/db/models/Clap2.php',
         'Models\\Familia' => __DIR__ . '/../..' . '/db/models/Familia.php',
         'Models\\Jefe' => __DIR__ . '/../..' . '/db/models/Jefe.php',
         'Models\\Municipio' => __DIR__ . '/../..' . '/db/models/Municipio.php',

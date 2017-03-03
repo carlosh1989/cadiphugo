@@ -352,6 +352,7 @@ return array(
     'MYANMAR' => $vendorDir . '/mpdf/mpdf/classes/myanmar.php',
     'Models\\Bodega' => $baseDir . '/db/models/Bodega.php',
     'Models\\Clap' => $baseDir . '/db/models/Clap.php',
+    'Models\\Clap2' => $baseDir . '/db/models/Clap2.php',
     'Models\\Familia' => $baseDir . '/db/models/Familia.php',
     'Models\\Jefe' => $baseDir . '/db/models/Jefe.php',
     'Models\\Municipio' => $baseDir . '/db/models/Municipio.php',
