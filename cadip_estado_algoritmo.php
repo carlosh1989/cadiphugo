@@ -30,16 +30,16 @@ foreach ($claps as $clap)
 		$jefe = Jefe::where('cedula',$clap->l_com_cedula)->first();
 		$familiar = Familia::where('cedula',$clap->l_com_cedula)->first();
 
-		$clap_verificar = Clap2::where('cedula', $clap->l_com_cedula)->first();
+		$clapA = Clap2::where('cedula', $clap->l_com_cedula)->first();
 
-		if($clap_verificar)
+		if($clapA)
 		{
-			echo "\033[32m ".$clap_verificar->estatus." \033[0m";
+			echo "\033[32m ".$clapA->registro." \033[0m";
 		}
 		else
 		{
 			//Guardando en la tabla a integrante	
-			$clap2 = Clap2::create([
+			$clapAcreate = Clap2::create([
 				'id_estado'   	 => $clap->id_estado,
 				'id_municipio'	 => $clap->id_municipio,
 				'id_parroquia'	 => $clap->id_parroquia,
@@ -51,16 +51,17 @@ foreach ($claps as $clap)
 				'cedula'      	 => $clap->l_com_cedula,
 				'nombre_apellido'=> $clap->nombre_comunidad,
 				'telefono'       => $clap->l_com_telefono,
-				'estatus'        => '',
+				'registrado'     => '',
+				'ubicado'		 => '',
 			]);
 
-			$clap = Clap2::find($clap2->id);
+			$clapA = Clap2::find($clapAcreate->id);
 			//verificando si lo encontro tanto como jefe o como carga familiar
 			if($jefe) 
 			{
 				echo "\033[32m es jefe de familia \033[0m";
 				//actualizando el estatus de esa integrante
-				$clap->estatus = 'registrado';
+				$clapA->registro = 1;
 				echo "\033[32m -> esta registrado \033[0m";
 			}
 			else
@@ -68,20 +69,20 @@ foreach ($claps as $clap)
 				if($familiar) 
 				{
 					echo "\033[32m es carga familiar \033[0m";
-					$clap->estatus = 'registrado';
+					$clapA->registro = 1;
 					echo "\033[32m -> esta registrado \033[0m";
 				}
 				else
 				{
 					echo "\033[32m No se encuentra registrado \033[0m";
-					$clap->estatus = 'no registrado';
+					$clapA->registro = 0;
 					echo "\033[32m -> no esta registrado \033[0m";
 				}
 			}
 		}
 
 
-		$clap->save();
+		$clapA->save();
 
 		echo "\n";
 		echo "\n";
@@ -95,23 +96,59 @@ foreach ($claps as $clap)
 		$jefe = Jefe::where('cedula',$clap->l_ubch_cedula)->first();
 		$familiar = Familia::where('cedula',$clap->l_ubch_cedula)->first();
 
-		//verificando si lo encontro tanto como jefe o como carga familiar
-		if($jefe) 
+		$clapB = Clap2::where('cedula', $clap->l_ubch_cedula)->first();
+
+		if($clapB)
 		{
-			echo "\033[32m es jefe de familia \033[0m";
+			echo "\033[32m ".$clapB->registro." \033[0m";
 		}
 		else
 		{
-			if($familiar) 
+			//Guardando en la tabla a integrante	
+			$clapBcreate = Clap2::create([
+				'id_estado'   	 => $clap->id_estado,
+				'id_municipio'	 => $clap->id_municipio,
+				'id_parroquia'	 => $clap->id_parroquia,
+				'codigo_clap' 	 => $clap->codigo_clap,
+				'nombre_clap' 	 => $clap->nombre_clap, 
+				'comunidad'   	 => $clap->comunidad, 
+				'cargo'       	 => 'UBCH',
+				'tipo'        	 => $clap->tipo_ubch,
+				'cedula'      	 => $clap->l_ubch_cedula,
+				'nombre_apellido'=> $clap->nombre_ubch,
+				'telefono'       => $clap->l_ubch_telefono,
+				'registrado'     => '',
+				'ubicado'		 => '',
+			]);
+
+			$clapB = Clap2::find($clapBcreate->id);
+			//verificando si lo encontro tanto como jefe o como carga familiar
+			if($jefe) 
 			{
-				echo "\033[32m es carga familiar \033[0m";
+				echo "\033[32m es jefe de familia \033[0m";
+				//actualizando el estatus de esa integrante
+				$clapB->registro = 1;
+				echo "\033[32m -> esta registrado \033[0m";
 			}
 			else
 			{
-				echo "\033[32m No se encuentra registrado \033[0m";
+				if($familiar) 
+				{
+					echo "\033[32m es carga familiar \033[0m";
+					$clapB->registro = 1;
+					echo "\033[32m -> esta registrado \033[0m";
+				}
+				else
+				{
+					echo "\033[32m No se encuentra registrado \033[0m";
+					$clapB->registro = 0;
+					echo "\033[32m -> no esta registrado \033[0m";
+				}
 			}
 		}
 
+
+		$clapB->save();
 
 		echo "\n";
 		echo "\n";
@@ -125,23 +162,59 @@ foreach ($claps as $clap)
 		$jefe = Jefe::where('cedula',$clap->l_unamujer_cedula)->first();
 		$familiar = Familia::where('cedula',$clap->l_unamujer_cedula)->first();
 
-		//verificando si lo encontro tanto como jefe o como carga familiar
-		if($jefe) 
+		$clapC = Clap2::where('cedula', $clap->l_unamujer_cedula)->first();
+
+		if($clapC)
 		{
-			echo "\033[32m es jefe de familia \033[0m";
+			echo "\033[32m ".$clapC->registro." \033[0m";
 		}
 		else
 		{
-			if($familiar) 
+			//Guardando en la tabla a integrante	
+			$clapCcreate = Clap2::create([
+				'id_estado'   	 => $clap->id_estado,
+				'id_municipio'	 => $clap->id_municipio,
+				'id_parroquia'	 => $clap->id_parroquia,
+				'codigo_clap' 	 => $clap->codigo_clap,
+				'nombre_clap' 	 => $clap->nombre_clap, 
+				'comunidad'   	 => $clap->comunidad, 
+				'cargo'       	 => 'LIDER UNA MUJER',
+				'tipo'        	 => $clap->tipo_unamujer,
+				'cedula'      	 => $clap->l_unamujer_cedula,
+				'nombre_apellido'=> $clap->nombre_unamujer,
+				'telefono'       => $clap->l_unamujer_telefono,
+				'registrado'     => '',
+				'ubicado'		 => '',
+			]);
+
+			$clapC = Clap2::find($clapCcreate->id);
+			//verificando si lo encontro tanto como jefe o como carga familiar
+			if($jefe) 
 			{
-				echo "\033[32m es carga familiar \033[0m";
+				echo "\033[32m es jefe de familia \033[0m";
+				//actualizando el estatus de esa integrante
+				$clapC->registro = 1;
+				echo "\033[32m -> esta registrado \033[0m";
 			}
 			else
 			{
-				echo "\033[32m No se encuentra registrado \033[0m";
+				if($familiar) 
+				{
+					echo "\033[32m es carga familiar \033[0m";
+					$clapC->registro = 1;
+					echo "\033[32m -> esta registrado \033[0m";
+				}
+				else
+				{
+					echo "\033[32m No se encuentra registrado \033[0m";
+					$clapC->registro = 0;
+					echo "\033[32m -> no esta registrado \033[0m";
+				}
 			}
 		}
 
+
+		$clapC->save();
 
 		echo "\n";
 		echo "\n";
@@ -150,28 +223,64 @@ foreach ($claps as $clap)
 	//Lider FFM
 	if($clap->l_ffm_cedula)
 	{
-		echo "LIDER FFM: ".$clap->nombre_unamujer." -> ";
+		echo "LIDER FFM: ".$clap->nombre_ffm." -> ";
 		//buscando a integrante en tabla de jefes de familia
 		$jefe = Jefe::where('cedula',$clap->l_ffm_cedula)->first();
 		$familiar = Familia::where('cedula',$clap->l_ffm_cedula)->first();
 
-		//verificando si lo encontro tanto como jefe o como carga familiar
-		if($jefe) 
+		$clapD = Clap2::where('cedula', $clap->l_ffm_cedula)->first();
+
+		if($clapD)
 		{
-			echo "\033[32m es jefe de familia \033[0m";
+			echo "\033[32m ".$clapD->registro." \033[0m";
 		}
 		else
 		{
-			if($familiar) 
+			//Guardando en la tabla a integrante	
+			$clapDcreate = Clap2::create([
+				'id_estado'   	 => $clap->id_estado,
+				'id_municipio'	 => $clap->id_municipio,
+				'id_parroquia'	 => $clap->id_parroquia,
+				'codigo_clap' 	 => $clap->codigo_clap,
+				'nombre_clap' 	 => $clap->nombre_clap, 
+				'comunidad'   	 => $clap->comunidad, 
+				'cargo'       	 => 'FRENTE FRANCISCO DE MIRANDA',
+				'tipo'        	 => $clap->tipo_ffm,
+				'cedula'      	 => $clap->l_ffm_cedula,
+				'nombre_apellido'=> $clap->nombre_ffm,
+				'telefono'       => $clap->l_ffm_telefono,
+				'registrado'     => '',
+				'ubicado'		 => '',
+			]);
+
+			$clapD = Clap2::find($clapDcreate->id);
+			//verificando si lo encontro tanto como jefe o como carga familiar
+			if($jefe) 
 			{
-				echo "\033[32m es carga familiar \033[0m";
+				echo "\033[32m es jefe de familia \033[0m";
+				//actualizando el estatus de esa integrante
+				$clapD->registro = 1;
+				echo "\033[32m -> esta registrado \033[0m";
 			}
 			else
 			{
-				echo "\033[32m No se encuentra registrado \033[0m";
+				if($familiar) 
+				{
+					echo "\033[32m es carga familiar \033[0m";
+					$clapD->registro = 1;
+					echo "\033[32m -> esta registrado \033[0m";
+				}
+				else
+				{
+					echo "\033[32m No se encuentra registrado \033[0m";
+					$clapD->registro = 0;
+					echo "\033[32m -> no esta registrado \033[0m";
+				}
 			}
 		}
 
+
+		$clapD->save();
 
 		echo "\n";
 		echo "\n";
@@ -185,22 +294,59 @@ foreach ($claps as $clap)
 		$jefe = Jefe::where('cedula',$clap->l_ccomunal_cedula)->first();
 		$familiar = Familia::where('cedula',$clap->l_ccomunal_cedula)->first();
 
-		//verificando si lo encontro tanto como jefe o como carga familiar
-		if($jefe) 
+		$clapE = Clap2::where('cedula', $clap->l_ccomunal_cedula)->first();
+
+		if($clapE)
 		{
-			echo "\033[32m es jefe de familia \033[0m";
+			echo "\033[32m ".$clapE->registro." \033[0m";
 		}
 		else
 		{
-			if($familiar) 
+			//Guardando en la tabla a integrante	
+			$clapEcreate = Clap2::create([
+				'id_estado'   	 => $clap->id_estado,
+				'id_municipio'	 => $clap->id_municipio,
+				'id_parroquia'	 => $clap->id_parroquia,
+				'codigo_clap' 	 => $clap->codigo_clap,
+				'nombre_clap' 	 => $clap->nombre_clap, 
+				'comunidad'   	 => $clap->comunidad, 
+				'cargo'       	 => 'LIDER COMUNAL',
+				'tipo'        	 => $clap->tipo_ccomunal,
+				'cedula'      	 => $clap->l_ccomunal_cedula,
+				'nombre_apellido'=> $clap->nombre_ccomunal,
+				'telefono'       => $clap->l_ccomunal_telefono,
+				'registrado'     => '',
+				'ubicado'		 => '',
+			]);
+
+			$clapE = Clap2::find($clapEcreate->id);
+			//verificando si lo encontro tanto como jefe o como carga familiar
+			if($jefe) 
 			{
-				echo "\033[32m es carga familiar \033[0m";
+				echo "\033[32m es jefe de familia \033[0m";
+				//actualizando el estatus de esa integrante
+				$clapE->registro = 1;
+				echo "\033[32m -> esta registrado \033[0m";
 			}
 			else
 			{
-				echo "\033[32m No se encuentra registrado \033[0m";
+				if($familiar) 
+				{
+					echo "\033[32m es carga familiar \033[0m";
+					$clapE->registro = 1;
+					echo "\033[32m -> esta registrado \033[0m";
+				}
+				else
+				{
+					echo "\033[32m No se encuentra registrado \033[0m";
+					$clapE->registro = 0;
+					echo "\033[32m -> no esta registrado \033[0m";
+				}
 			}
 		}
+
+
+		$clapE->save();
 
 		echo "\n";
 		echo "\n";
@@ -214,24 +360,59 @@ foreach ($claps as $clap)
 		$jefe = Jefe::where('cedula',$clap->l_ccomunal_cedula)->first();
 		$familiar = Familia::where('cedula',$clap->l_ccomunal_cedula)->first();
 
-		//verificando si lo encontro tanto como jefe o como carga familiar
-		if($jefe) 
+		$clapF = Clap2::where('cedula', $clap->l_milicia_cedula)->first();
+
+		if($clapF)
 		{
-			echo "\033[32m es jefe de familia \033[0m";
+			echo "\033[32m ".$clapF->registro." \033[0m";
 		}
 		else
 		{
-			if($familiar) 
+			//Guardando en la tabla a integrante	
+			$clapFcreate = Clap2::create([
+				'id_estado'   	 => $clap->id_estado,
+				'id_municipio'	 => $clap->id_municipio,
+				'id_parroquia'	 => $clap->id_parroquia,
+				'codigo_clap' 	 => $clap->codigo_clap,
+				'nombre_clap' 	 => $clap->nombre_clap, 
+				'comunidad'   	 => $clap->comunidad, 
+				'cargo'       	 => 'MILICIA',
+				'tipo'        	 => $clap->tipo_milicia,
+				'cedula'      	 => $clap->l_milicia_cedula,
+				'nombre_apellido'=> $clap->nombre_milicia,
+				'telefono'       => $clap->l_milicia_telefono,
+				'registrado'     => '',
+				'ubicado'		 => '',
+			]);
+
+			$clapF = Clap2::find($clapFcreate->id);
+			//verificando si lo encontro tanto como jefe o como carga familiar
+			if($jefe) 
 			{
-				echo "\033[32m es carga familiar \033[0m";
+				echo "\033[32m es jefe de familia \033[0m";
+				//actualizando el estatus de esa integrante
+				$clapF->registro = 1;
+				echo "\033[32m -> esta registrado \033[0m";
 			}
 			else
 			{
-				echo "\033[32m No se encuentra registrado \033[0m";
+				if($familiar) 
+				{
+					echo "\033[32m es carga familiar \033[0m";
+					$clapF->registro = 1;
+					echo "\033[32m -> esta registrado \033[0m";
+				}
+				else
+				{
+					echo "\033[32m No se encuentra registrado \033[0m";
+					$clapF->registro = 0;
+					echo "\033[32m -> no esta registrado \033[0m";
+				}
 			}
 		}
 
-		echo "\n";	
+		$clapF->save();
+		echo "\n";
 	}
 	echo "---------------------------------------------------------------------\n";
 	echo "\n";
