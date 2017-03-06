@@ -34,7 +34,7 @@ foreach ($claps as $clap)
 
 		if($clapA)
 		{
-			echo "\033[32m ".$clapA->registro." \033[0m";
+			echo "\033[32m ".$clapA->registrado." \033[0m";
 		}
 		else
 		{
@@ -61,7 +61,7 @@ foreach ($claps as $clap)
 			{
 				echo "\033[32m es jefe de familia \033[0m";
 				//actualizando el estatus de esa integrante
-				$clapA->registro = 1;
+				$clapA->registrado = 1;
 				echo "\033[32m -> esta registrado \033[0m";
 			}
 			else
@@ -69,13 +69,13 @@ foreach ($claps as $clap)
 				if($familiar) 
 				{
 					echo "\033[32m es carga familiar \033[0m";
-					$clapA->registro = 1;
+					$clapA->registrado = 1;
 					echo "\033[32m -> esta registrado \033[0m";
 				}
 				else
 				{
 					echo "\033[32m No se encuentra registrado \033[0m";
-					$clapA->registro = 0;
+					$clapA->registrado = 0;
 					echo "\033[32m -> no esta registrado \033[0m";
 				}
 			}
@@ -100,7 +100,7 @@ foreach ($claps as $clap)
 
 		if($clapB)
 		{
-			echo "\033[32m ".$clapB->registro." \033[0m";
+			echo "\033[32m ".$clapB->registrado." \033[0m";
 		}
 		else
 		{
@@ -127,7 +127,7 @@ foreach ($claps as $clap)
 			{
 				echo "\033[32m es jefe de familia \033[0m";
 				//actualizando el estatus de esa integrante
-				$clapB->registro = 1;
+				$clapB->registrado = 1;
 				echo "\033[32m -> esta registrado \033[0m";
 			}
 			else
@@ -135,13 +135,13 @@ foreach ($claps as $clap)
 				if($familiar) 
 				{
 					echo "\033[32m es carga familiar \033[0m";
-					$clapB->registro = 1;
+					$clapB->registrado = 1;
 					echo "\033[32m -> esta registrado \033[0m";
 				}
 				else
 				{
 					echo "\033[32m No se encuentra registrado \033[0m";
-					$clapB->registro = 0;
+					$clapB->registrado = 0;
 					echo "\033[32m -> no esta registrado \033[0m";
 				}
 			}
@@ -166,7 +166,7 @@ foreach ($claps as $clap)
 
 		if($clapC)
 		{
-			echo "\033[32m ".$clapC->registro." \033[0m";
+			echo "\033[32m ".$clapC->registrado." \033[0m";
 		}
 		else
 		{
@@ -193,7 +193,7 @@ foreach ($claps as $clap)
 			{
 				echo "\033[32m es jefe de familia \033[0m";
 				//actualizando el estatus de esa integrante
-				$clapC->registro = 1;
+				$clapC->registrado = 1;
 				echo "\033[32m -> esta registrado \033[0m";
 			}
 			else
@@ -201,13 +201,13 @@ foreach ($claps as $clap)
 				if($familiar) 
 				{
 					echo "\033[32m es carga familiar \033[0m";
-					$clapC->registro = 1;
+					$clapC->registrado = 1;
 					echo "\033[32m -> esta registrado \033[0m";
 				}
 				else
 				{
 					echo "\033[32m No se encuentra registrado \033[0m";
-					$clapC->registro = 0;
+					$clapC->registrado = 0;
 					echo "\033[32m -> no esta registrado \033[0m";
 				}
 			}
@@ -232,7 +232,7 @@ foreach ($claps as $clap)
 
 		if($clapD)
 		{
-			echo "\033[32m ".$clapD->registro." \033[0m";
+			echo "\033[32m ".$clapD->registrado." \033[0m";
 		}
 		else
 		{
@@ -259,7 +259,7 @@ foreach ($claps as $clap)
 			{
 				echo "\033[32m es jefe de familia \033[0m";
 				//actualizando el estatus de esa integrante
-				$clapD->registro = 1;
+				$clapD->registrado = 1;
 				echo "\033[32m -> esta registrado \033[0m";
 			}
 			else
@@ -267,13 +267,13 @@ foreach ($claps as $clap)
 				if($familiar) 
 				{
 					echo "\033[32m es carga familiar \033[0m";
-					$clapD->registro = 1;
+					$clapD->registrado = 1;
 					echo "\033[32m -> esta registrado \033[0m";
 				}
 				else
 				{
 					echo "\033[32m No se encuentra registrado \033[0m";
-					$clapD->registro = 0;
+					$clapD->registrado = 0;
 					echo "\033[32m -> no esta registrado \033[0m";
 				}
 			}
@@ -298,7 +298,7 @@ foreach ($claps as $clap)
 
 		if($clapE)
 		{
-			echo "\033[32m ".$clapE->registro." \033[0m";
+			echo "\033[32m ".$clapE->registrado." \033[0m";
 		}
 		else
 		{
@@ -325,7 +325,7 @@ foreach ($claps as $clap)
 			{
 				echo "\033[32m es jefe de familia \033[0m";
 				//actualizando el estatus de esa integrante
-				$clapE->registro = 1;
+				$clapE->registrado = 1;
 				echo "\033[32m -> esta registrado \033[0m";
 			}
 			else
@@ -333,18 +333,17 @@ foreach ($claps as $clap)
 				if($familiar) 
 				{
 					echo "\033[32m es carga familiar \033[0m";
-					$clapE->registro = 1;
+					$clapE->registrado = 1;
 					echo "\033[32m -> esta registrado \033[0m";
 				}
 				else
 				{
 					echo "\033[32m No se encuentra registrado \033[0m";
-					$clapE->registro = 0;
+					$clapE->registrado = 0;
 					echo "\033[32m -> no esta registrado \033[0m";
 				}
 			}
 		}
-
 
 		$clapE->save();
 
@@ -364,7 +363,7 @@ foreach ($claps as $clap)
 
 		if($clapF)
 		{
-			echo "\033[32m ".$clapF->registro." \033[0m";
+			echo "\033[32m ".$clapF->registrado." \033[0m";
 		}
 		else
 		{
@@ -391,7 +390,7 @@ foreach ($claps as $clap)
 			{
 				echo "\033[32m es jefe de familia \033[0m";
 				//actualizando el estatus de esa integrante
-				$clapF->registro = 1;
+				$clapF->registrado = 1;
 				echo "\033[32m -> esta registrado \033[0m";
 			}
 			else
@@ -399,13 +398,13 @@ foreach ($claps as $clap)
 				if($familiar) 
 				{
 					echo "\033[32m es carga familiar \033[0m";
-					$clapF->registro = 1;
+					$clapF->registrado = 1;
 					echo "\033[32m -> esta registrado \033[0m";
 				}
 				else
 				{
 					echo "\033[32m No se encuentra registrado \033[0m";
-					$clapF->registro = 0;
+					$clapF->registrado = 0;
 					echo "\033[32m -> no esta registrado \033[0m";
 				}
 			}
