@@ -77,13 +77,13 @@ foreach ($claps as $clap)
 		{
 			//Guardando en la tabla a integrante	
 			$clapAcreate = Clap2::create([
-				'id_estado'   	 => $clap->id_estado,
-				'id_municipio'	 => $clap->id_municipio,
-				'id_parroquia'	 => $clap->id_parroquia,
-				'codigo_clap' 	 => $clap->codigo_clap,
-				'nombre_clap' 	 => $clap->nombre_clap, 
+				'estado_id'   	 => $clap->id_estado,
+				'municipio_id'	 => $clap->id_municipio,
+				'parroquia_id'	 => $clap->id_parroquia,
+				'clap_codigo' 	 => $clap->codigo_clap,
+				'clap_nombre' 	 => $clap->nombre_clap, 
 				'comunidad'   	 => $clap->comunidad, 
-				'cargo'       	 => 'LIDER DE COMUNIDAD',
+				'cargo_id'       	 => '1',
 				'tipo'        	 => $clap->tipo_comunidad,
 				'cedula'      	 => $clap->l_com_cedula,
 				'nombre_apellido'=> $clap->nombre_comunidad,
@@ -177,13 +177,13 @@ foreach ($claps as $clap)
 		{
 			//Guardando en la tabla a integrante	
 			$clapBcreate = Clap2::create([
-				'id_estado'   	 => $clap->id_estado,
-				'id_municipio'	 => $clap->id_municipio,
-				'id_parroquia'	 => $clap->id_parroquia,
-				'codigo_clap' 	 => $clap->codigo_clap,
-				'nombre_clap' 	 => $clap->nombre_clap, 
+				'estado_id'   	 => $clap->id_estado,
+				'municipio_id'	 => $clap->id_municipio,
+				'parroquia_id'	 => $clap->id_parroquia,
+				'clap_codigo' 	 => $clap->codigo_clap,
+				'clap_nombre' 	 => $clap->nombre_clap, 
 				'comunidad'   	 => $clap->comunidad, 
-				'cargo'       	 => 'UBCH',
+				'cargo_id'       	 => '2',
 				'tipo'        	 => $clap->tipo_ubch,
 				'cedula'      	 => $clap->l_ubch_cedula,
 				'nombre_apellido'=> $clap->nombre_ubch,
@@ -277,13 +277,13 @@ foreach ($claps as $clap)
 		{
 			//Guardando en la tabla a integrante	
 			$clapCcreate = Clap2::create([
-				'id_estado'   	 => $clap->id_estado,
-				'id_municipio'	 => $clap->id_municipio,
-				'id_parroquia'	 => $clap->id_parroquia,
-				'codigo_clap' 	 => $clap->codigo_clap,
-				'nombre_clap' 	 => $clap->nombre_clap, 
+				'estado_id'   	 => $clap->id_estado,
+				'municipio_id'	 => $clap->id_municipio,
+				'parroquia_id'	 => $clap->id_parroquia,
+				'clap_codigo' 	 => $clap->codigo_clap,
+				'clap_nombre' 	 => $clap->nombre_clap, 
 				'comunidad'   	 => $clap->comunidad, 
-				'cargo'       	 => 'LIDER UNA MUJER',
+				'cargo_id'       	 => '3',
 				'tipo'        	 => $clap->tipo_unamujer,
 				'cedula'      	 => $clap->l_unamujer_cedula,
 				'nombre_apellido'=> $clap->nombre_unamujer,
@@ -377,13 +377,13 @@ foreach ($claps as $clap)
 		{
 			//Guardando en la tabla a integrante	
 			$clapDcreate = Clap2::create([
-				'id_estado'   	 => $clap->id_estado,
-				'id_municipio'	 => $clap->id_municipio,
-				'id_parroquia'	 => $clap->id_parroquia,
-				'codigo_clap' 	 => $clap->codigo_clap,
-				'nombre_clap' 	 => $clap->nombre_clap, 
+				'estado_id'   	 => $clap->id_estado,
+				'municipio_id'	 => $clap->id_municipio,
+				'parroquia_id'	 => $clap->id_parroquia,
+				'clap_codigo' 	 => $clap->codigo_clap,
+				'clap_nombre' 	 => $clap->nombre_clap, 
 				'comunidad'   	 => $clap->comunidad, 
-				'cargo'       	 => 'FRENTE FRANCISCO DE MIRANDA',
+				'cargo_id'       	 => '4',
 				'tipo'        	 => $clap->tipo_ffm,
 				'cedula'      	 => $clap->l_ffm_cedula,
 				'nombre_apellido'=> $clap->nombre_ffm,
@@ -477,13 +477,13 @@ foreach ($claps as $clap)
 		{
 			//Guardando en la tabla a integrante	
 			$clapEcreate = Clap2::create([
-				'id_estado'   	 => $clap->id_estado,
-				'id_municipio'	 => $clap->id_municipio,
-				'id_parroquia'	 => $clap->id_parroquia,
-				'codigo_clap' 	 => $clap->codigo_clap,
-				'nombre_clap' 	 => $clap->nombre_clap, 
+				'estado_id'   	 => $clap->id_estado,
+				'municipio_id'	 => $clap->id_municipio,
+				'parroquia_id'	 => $clap->id_parroquia,
+				'clap_codigo' 	 => $clap->codigo_clap,
+				'clap_nombre' 	 => $clap->nombre_clap, 
 				'comunidad'   	 => $clap->comunidad, 
-				'cargo'       	 => 'LIDER COMUNAL',
+				'cargo_id'       	 => '5',
 				'tipo'        	 => $clap->tipo_ccomunal,
 				'cedula'      	 => $clap->l_ccomunal_cedula,
 				'nombre_apellido'=> $clap->nombre_ccomunal,
@@ -576,13 +576,13 @@ foreach ($claps as $clap)
 		{
 			//Guardando en la tabla a integrante	
 			$clapFcreate = Clap2::create([
-				'id_estado'   	 => $clap->id_estado,
-				'id_municipio'	 => $clap->id_municipio,
-				'id_parroquia'	 => $clap->id_parroquia,
-				'codigo_clap' 	 => $clap->codigo_clap,
-				'nombre_clap' 	 => $clap->nombre_clap, 
+				'estado_id'   	 => $clap->id_estado,
+				'municipio_id'	 => $clap->id_municipio,
+				'parroquia_id'	 => $clap->id_parroquia,
+				'clap_codigo' 	 => $clap->codigo_clap,
+				'clap_nombre' 	 => $clap->nombre_clap, 
 				'comunidad'   	 => $clap->comunidad, 
-				'cargo'       	 => 'MILICIA',
+				'cargo_id'       	 => '6',
 				'tipo'        	 => $clap->tipo_milicia,
 				'cedula'      	 => $clap->l_milicia_cedula,
 				'nombre_apellido'=> $clap->nombre_milicia,

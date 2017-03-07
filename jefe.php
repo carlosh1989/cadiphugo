@@ -19,7 +19,7 @@ $jefe = Jefe::where('bodega', $bodega)->first();
 <br>
 Responsable: <?php echo $jefe->bodeguera->responsable ?>
 <br>  
-Dirección: <?php echo $jefe->bodeguera->rason_social ?>
+Dirección: <?php echo $jefe->bodeguera->direccion ?>
 </div>
 <h3 align="center">Personas solas</h3>
 <table border=0 cellspacing=0 cellpadding=2 bordercolor="666633">
